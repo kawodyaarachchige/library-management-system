@@ -1,0 +1,36 @@
+#caption{
+    -fx-font-size: 40;
+    -fx-text-fill: radial-gradient(center 50% 50%, radius 100%, rgba(110,218,156,1) 16%, #000000FF 89%);
+    -fx-text-shadow: 2px 2px 2px #000000FF;
+    -fx-font-family:"cursive";
+    -fx-font-weight: bold;
+}
+#dashPane{
+   background: rgb(217,249,228);
+    -fx-background-color:  radial-gradient(center 50% 50%, radius 100%, rgba(0,221,160,1) 2%, rgba(191,240,202,1) 52%);
+}
+#lgout{
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#lgout:hover{
+    -fx-background-color: grey;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#manageBook,#books ,#branches ,#users{
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #15F5BA;
+    -fx-cursor: hand;
+
+
+}

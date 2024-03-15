@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.UserDashFormController">
+   <children>
+      <AnchorPane fx:id="viewBook" layoutX="57.0" layoutY="174.0" onDragDetected="#btnBookFormOnAction" prefHeight="418.0" prefWidth="311.0" style="-fx-background-color: gray;" />
+      <AnchorPane fx:id="borrowBook" layoutX="433.0" layoutY="174.0" onDragDetected="#btnBorrowBookOnAction" prefHeight="418.0" prefWidth="311.0" style="-fx-background-color: gray;" />
+      <AnchorPane fx:id="setting" layoutX="946.0" layoutY="174.0" onDragDetected="#btnSettingOnAction" prefHeight="418.0" prefWidth="311.0" style="-fx-background-color: gray;" />
+   </children>
+</AnchorPane>

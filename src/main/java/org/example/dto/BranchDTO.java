@@ -7,7 +7,9 @@ import lombok.*;
 @Setter
 @ToString
 public class BranchDTO {
-
-    private String id;
-    private String address;
+    String id;
+    String location;
+    int telephone;
+    String email;
+    String address;
 }

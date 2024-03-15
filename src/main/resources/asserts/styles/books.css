@@ -1,0 +1,87 @@
+#save ,#delete ,#update ,#clear {
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #15F5BA;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#search{
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 14;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#save:hover ,#delete:hover ,#update:hover ,#clear:hover ,#search:hover{
+    -fx-background-color: grey;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#save:pressed ,#delete:pressed ,#update:pressed ,#clear:pressed ,#search:pressed{
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#txtsearch{
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color:rgb(112,218,156) ;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+
+}
+#branches,#title,#id ,#author ,#genre{
+    -fx-background-color: transparent;
+    -fx-font-size: 15;-fx-text-fill-: black;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+}
+#cmbBranches ,#cmbStatus{
+    -fx-background-color: transparent;
+    -fx-font-size: 15;-fx-text-fill-: black;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-fill-color: rgb(112,218,156);
+}
+.table-view{
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-font-size: 15;-fx-text-fill-: black;
+}
+.table-view-column{
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-font-size: 15;-fx-text-fill-: black;
+}
+.table-row-cell{
+    -fx-background-color: transparent;
+
+}
+.table-view .column-header {
+    -fx-background-color: rgb(112,218,156);
+    -fx-text-fill: black;
+    -fx-font-size: 15;
+}
+#cmbBran{
+    -fx-background-color: transparent;
+    -fx-font-size: 13;-fx-text-fill-: black;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-fill-color: rgb(112,218,156);
+}
+#back{
+    -fx-text-fill-color: black;
+}
+#back:hover{
+    -fx-text-fill:  rgb(112,218,156);
+}

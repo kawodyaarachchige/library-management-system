@@ -1,4 +1,5 @@
 package org.example.dto;
+import jakarta.persistence.Column;
 import lombok.*;
 
 @NoArgsConstructor
@@ -8,8 +9,8 @@ import lombok.*;
 @ToString
 public class AdminDTO {
 
-    private String id;
-    private String name;
-    private String email;
-    private String password;
+    String name;
+    String email;
+    int telephone;
+    String password;
 }

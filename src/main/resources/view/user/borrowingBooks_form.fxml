@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.BorrowingBooksFormController">
+   <children>
+      <TableView fx:id="tblBorrow" layoutX="83.0" layoutY="105.0" prefHeight="625.0" prefWidth="879.0">
+         <columns>
+            <TableColumn prefWidth="123.0" text="ID" />
+            <TableColumn prefWidth="133.0" text="User" />
+            <TableColumn prefWidth="146.0" text="Book" />
+            <TableColumn prefWidth="147.0" text="Borrow Date" />
+            <TableColumn prefWidth="172.0" text="Return Date" />
+            <TableColumn prefWidth="153.0" text="Status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

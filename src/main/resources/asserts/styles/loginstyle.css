@@ -1,0 +1,88 @@
+#welcomepane{
+    background: rgb(112,218,156);
+   /*-fx-background-color: radial-gradient(center 50% 50%, radius 100%, rgba(255,99,79,1) 16%, rgba(247,247,247,1) 89%);*/;
+  /* -fx-background: radial-gradient(center 50% 50%, radius 100%, rgba(112,218,156,1) 16%, rgba(247,247,247,1) 89%)*/
+    -fx-background-color: white;
+}
+
+#login{
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#login:hover{
+    -fx-background-color: grey;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#signin{
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+   /* -fx-border-color: black;*/
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#signin:hover{
+    -fx-background-color: grey;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+
+}#login:pressed {
+    -fx-background-color: rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+ }
+ #signin:pressed{
+     -fx-background-color: rgb(112,218,156);
+     -fx-background-radius: 15;
+     -fx-border-radius: 15;
+     -fx-font-size: 16;
+     -fx-text-fill: black;
+     -fx-cursor: hand;
+ }
+#username ,#password {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color:rgb(112,218,156) ;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#cmbaccounttype ,#cmbbranch{
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-color:rgb(112,218,156) ;
+    -fx-border-width: 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#welcm{/*
+    -fx-font-color: radial-gradient(center 50% 50%, radius 100%, rgba(112,218,156,1) 16%, rgba(247,247,247,1) 89%);*/
+    -fx-font-size: 40;
+    -fx-text-fill: radial-gradient(center 50% 50%, radius 100%, rgba(110,218,156,1) 16%, #000000FF 89%);
+    -fx-text-shadow: 2px 2px 2px #000000FF;
+    -fx-font-family:"cursive";
+    -fx-font-weight: bold;
+}
+

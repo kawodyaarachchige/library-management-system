@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.SettingFormController">
+   <children>
+      <TextField fx:id="txtEmail" layoutX="346.0" layoutY="130.0" prefHeight="49.0" prefWidth="354.0" promptText="Email" styleClass="branch" />
+      <TextField fx:id="txtCurrentPW" layoutX="147.0" layoutY="333.0" prefHeight="49.0" prefWidth="282.0" promptText="Current Password" styleClass="branch" />
+      <TextField fx:id="txtNewPW" layoutX="147.0" layoutY="404.0" prefHeight="49.0" prefWidth="282.0" promptText="New Password" styleClass="branch" />
+      <TextField fx:id="txtREPW" layoutX="147.0" layoutY="473.0" prefHeight="49.0" prefWidth="282.0" promptText="Re-Enter New Password" styleClass="branch" />
+      <TextField fx:id="txtUsername" layoutX="637.0" layoutY="333.0" prefHeight="49.0" prefWidth="282.0" promptText="Username" styleClass="user" />
+      <TextField fx:id="txtTelephone" layoutX="637.0" layoutY="404.0" prefHeight="49.0" prefWidth="282.0" promptText="Telephone" styleClass="branch" />
+      <ComboBox fx:id="cmbBranch" layoutX="702.0" layoutY="476.0" prefHeight="42.0" prefWidth="151.0" promptText="Branch" styleClass="branch" stylesheets="@../../../../../../../../../../Downloads/Library-Management/src/main/resources/styles/combobox.css" />
+      <Label layoutX="62.0" layoutY="245.0" text="Change User Password">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="570.0" layoutY="245.0" text="Change User Details">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="740.0" layoutY="547.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="36.0" prefWidth="100.0" text="Update">
+         <styleClass>
+            <String fx:value="branch" />
+            <String fx:value="update" />
+         </styleClass>
+      </Button>
+      <Button layoutX="245.0" layoutY="547.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="36.0" prefWidth="81.0" text="Save">
+         <styleClass>
+            <String fx:value="branch" />
+            <String fx:value="save" />
+         </styleClass>
+      </Button>
+   </children>
+</AnchorPane>
