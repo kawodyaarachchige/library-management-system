@@ -6,12 +6,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="borrowingBook" prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.BorrowingBooksController">
+<AnchorPane fx:id="borrowingBook" prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.BorrowingBooksController">
     <children>
-        <TableView fx:id="tblBorrow" layoutX="454.0" layoutY="162.0" onMouseClicked="#tblOnAction" prefHeight="604.0" prefWidth="950.0">
+        <TableView fx:id="tblBorrow" layoutX="454.0" layoutY="162.0" onMouseClicked="#tblOnAction" prefHeight="567.0" prefWidth="950.0" stylesheets="@../../asserts/styles/borrowBook.css">
             <columns>
                 <TableColumn prefWidth="143.0" text="ID" />
                 <TableColumn prefWidth="139.0" text="USER" />
@@ -21,26 +23,93 @@
                 <TableColumn prefWidth="167.0" text="STATUS" />
             </columns>
         </TableView>
-        <Button layoutX="234.0" layoutY="666.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="27.0" prefWidth="91.0" text="UPDATE" />
-        <Button layoutX="1295.0" layoutY="86.0" mnemonicParsing="false" onAction="#serachOnAction" prefHeight="27.0" prefWidth="102.0" text="Button" />
-        <Label layoutX="33.0" layoutY="758.0" text="BACK" />
-        <Label layoutX="29.0" layoutY="224.0" text="Filter By  :" />
-        <AnchorPane layoutX="99.0" layoutY="166.0" onDragDetected="#AllOnAction" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: black;" />
-        <AnchorPane layoutX="216.0" layoutY="166.0" onDragDetected="#notReturnedOnAction" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: black;" />
-        <AnchorPane layoutX="334.0" layoutY="166.0" onDragDetected="#pendingOnAction" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: black;" />
-        <Label layoutX="470.0" layoutY="59.0" text="MANAGE BORROW BOOKS">
+        <Button fx:id="search" layoutX="1295.0" layoutY="89.0" mnemonicParsing="false" onAction="#serachOnAction" prefHeight="27.0" prefWidth="102.0" stylesheets="@../../asserts/styles/borrowBook.css" text="Serach" />
+        <Label fx:id="back" layoutX="55.0" layoutY="738.0" onMouseClicked="#lablBackOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="BACK" />
+        <Label layoutX="496.0" layoutY="59.0" text="MANAGE BORROW BOOKS">
             <font>
-                <Font size="26.0" />
+                <Font name="Apple LiGothic Medium" size="35.0" />
             </font>
         </Label>
-        <Label layoutX="61.0" layoutY="358.0" text="Borrow Id :" />
-        <Label layoutX="76.0" layoutY="593.0" text="Status :" />
-        <Label layoutX="71.0" layoutY="515.0" text="Bookd Id :" />
-        <Label layoutX="66.0" layoutY="440.0" text="Email" />
-      <TextField fx:id="txtBorrowId" layoutX="164.0" layoutY="364.0" />
-      <TextField fx:id="txtUserMail" layoutX="154.0" layoutY="436.0" />
-      <TextField fx:id="txtBookId" layoutX="154.0" layoutY="511.0" />
-      <ComboBox fx:id="cmbStatus" layoutX="155.0" layoutY="589.0" prefWidth="150.0" />
-      <TextField fx:id="txtEmail" layoutX="1110.0" layoutY="87.0" />
+      <TextField fx:id="txtEmail" layoutX="1081.0" layoutY="87.0" prefHeight="29.0" prefWidth="190.0" promptText="User E-mail" stylesheets="@../../asserts/styles/borrowBook.css" />
+      <AnchorPane layoutX="32.0" layoutY="178.0" prefHeight="527.0" prefWidth="382.0" style="-fx-background-color: white; -fx-border-color: #37D390; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+              <Label layoutX="27.0" layoutY="210.0" text="Borrow Id :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+              <Label layoutX="31.0" layoutY="274.0" text="Email :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+              <Label layoutX="33.0" layoutY="407.0" text="Status :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+              <Label layoutX="30.0" layoutY="338.0" text="Bookd Id :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBorrowId" layoutX="135.0" layoutY="193.0" prefHeight="34.0" prefWidth="220.0" stylesheets="@../../asserts/styles/borrowBook.css" />
+            <TextField fx:id="txtUserMail" layoutX="134.0" layoutY="256.0" prefHeight="34.0" prefWidth="221.0" stylesheets="@../../asserts/styles/borrowBook.css" />
+            <TextField fx:id="txtBookId" layoutX="134.0" layoutY="323.0" prefHeight="34.0" prefWidth="217.0" stylesheets="@../../asserts/styles/borrowBook.css" />
+            <ComboBox fx:id="cmbStatus" layoutX="131.0" layoutY="391.0" prefHeight="34.0" prefWidth="227.0" stylesheets="@../../asserts/styles/borrowBook.css" />
+              <Button fx:id="update" layoutX="147.0" layoutY="467.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="36.0" prefWidth="91.0" stylesheets="@../../asserts/styles/borrowBook.css" text="UPDATE" />
+              <Label layoutX="19.0" layoutY="52.0" text="Filter By  :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+              <AnchorPane layoutX="82.0" layoutY="37.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: green; -fx-background-radius: 50; -fx-border-radius: 50;">
+               <children>
+                  <ImageView layoutX="17.0" layoutY="19.0">
+                     <image>
+                        <Image url="@../../asserts/image/icons8-books-48.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+              <AnchorPane layoutX="181.0" layoutY="36.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 50; -fx-border-radius: 50;">
+               <children>
+                  <ImageView layoutX="18.0" layoutY="17.0">
+                     <image>
+                        <Image url="@../../asserts/image/icons8-books-48-2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+              <AnchorPane layoutX="277.0" layoutY="34.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;">
+               <children>
+                  <ImageView layoutX="17.0" layoutY="17.0">
+                     <image>
+                        <Image url="@../../asserts/image/icons8-data-pending-48.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label fx:id="all" layoutX="93.0" layoutY="130.0" onMouseClicked="#AllOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="All Book" />
+            <Label fx:id="not" layoutX="155.0" layoutY="130.0" onMouseClicked="#notReturnedOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Not returned Books" />
+            <Label fx:id="pen" layoutX="277.0" layoutY="130.0" onMouseClicked="#pendingOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Pending Books" />
+            <Button fx:id="inform" layoutX="266.0" layoutY="465.0" mnemonicParsing="false" onAction="#btninnformOnAction" prefHeight="36.0" prefWidth="91.0" stylesheets="@../../asserts/styles/borrowBook.css" text="INFORM" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="22.0" fitWidth="21.0" layoutX="27.0" layoutY="736.0">
+         <image>
+            <Image url="@../../asserts/icons/icons8-back-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="436.0" layoutY="60.0">
+         <image>
+            <Image url="@../../asserts/icons/icons8-book.gif" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="42.0" layoutY="58.0" opacity="0.6">
+         <image>
+            <Image url="@../../asserts/icons/icons8-books-50.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

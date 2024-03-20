@@ -1,13 +1,14 @@
 package org.example.controller.admin;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.BranchBO;
 import org.example.dto.BranchDTO;
@@ -19,12 +20,13 @@ import java.util.List;
 public class ManageBranchesFormController {
     public TextField txtLocation;
     public TextField txtEmail;
-    public ComboBox <String> cmbBranch;
-    public TableView <BranchTM>tblBranch;
+    public ComboBox<String> cmbBranch;
+    public TableView<BranchTM> tblBranch;
     public TextField txtId;
     public TextField txtTelephone;
     public TextField txtAddress;
     public AnchorPane manageBranch;
+    public Label back;
 
     BranchBO branchBoImpl = (BranchBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BRANCH);
 
@@ -46,12 +48,14 @@ public class ManageBranchesFormController {
             throw new RuntimeException(e);
         }
     }
+
     private void setCellValueFactory() {
         tblBranch.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
         tblBranch.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("location"));
         tblBranch.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("telephone"));
         tblBranch.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("email"));
     }
+
     private void loadComboBox() {
         cmbBranch.getItems().clear();
         try {
@@ -63,6 +67,7 @@ public class ManageBranchesFormController {
             throw new RuntimeException(e);
         }
     }
+
     private void setNextId() {
         try {
             String nextId = branchBoImpl.generateNextId();
@@ -203,5 +208,18 @@ public class ManageBranchesFormController {
         txtEmail.setText(branchTm.getEmail());
         txtAddress.setText(search.getAddress());
     }
-    }
 
+    public void lblBackOnAction(MouseEvent mouseEvent) {
+        try {
+            Parent load = FXMLLoader.load(getClass().getResource("/view/admin/dashboard_form.fxml"));
+            Scene scene1 = new Scene(load);
+            Stage stage1 = (Stage) back.getScene().getWindow();
+            stage1.setScene(scene1);
+            stage1.setTitle("Admin Dashboard");
+            stage1.centerOnScreen();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }}
+
+}

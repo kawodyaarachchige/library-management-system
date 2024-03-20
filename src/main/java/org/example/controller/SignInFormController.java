@@ -15,6 +15,7 @@ import org.example.bo.custom.UserBO;
 import org.example.dto.AdminDTO;
 import org.example.dto.BranchDTO;
 import org.example.dto.UserDTO;
+import org.example.validation.Regex;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,16 +66,15 @@ public class SignInFormController {
     public void loginOnAction(MouseEvent mouseEvent) throws IOException {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
-            Scene scene1 = new Scene(root);
-            Stage stage1 = (Stage)loginPane .getScene().getWindow();
+            Parent load = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
+            Scene scene1 = new Scene(load);
+            Stage stage1 = (Stage) loginPane.getScene().getWindow();
             stage1.setScene(scene1);
-            stage1.setTitle("Sign Up Form");
+            stage1.setTitle("Login Form");
             stage1.centerOnScreen();
 
-
-        }catch (Exception e){
-            System.out.println(e);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
@@ -93,7 +93,7 @@ public class SignInFormController {
         } else if (!pass.equals(rePassword)) {
             new Alert(Alert.AlertType.ERROR, "Password does not match").show();
         } else {
-            if(type.equals("Admin")){
+            if(Regex.validateEmail(email) && Regex.validatePassword(pass)){ if(type.equals("Admin")){
                 try {
                     System.out.println("hello");
                     adminBo.save(new AdminDTO(user, email,tel, pass));
@@ -103,21 +103,28 @@ public class SignInFormController {
                     throw new RuntimeException(e);
                 }
             }
+                if (type.equals("User")) {
+                    cmbbranch.setVisible(true);
+                    if (cmbbranch.getValue() == null) {
+                        new Alert(Alert.AlertType.ERROR, "Please select branch").show();
+                    } else {
+                        if(Regex.validateEmail(email) && Regex.validatePassword(pass)){
+                            try {
+                                BranchDTO branchDTO = branchBO.searchByLocation(cmbbranch.getValue());
+                                userBo.save(new UserDTO(user, email, pass,tel, branchDTO));
+                                new Alert(Alert.AlertType.CONFIRMATION, "Register Successful").show();
+                            } catch (SQLException | ClassNotFoundException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }else {
+                            new Alert(Alert.AlertType.ERROR, " Your email or password is not valid :(").show();
+                        }
+                    }
+                }
+            }else{
+                new Alert(Alert.AlertType.ERROR, " Your email or password is not valid :(").show();
+            }
 
-           if (type.equals("User")) {
-               cmbbranch.setVisible(true);
-               if (cmbbranch.getValue() == null) {
-                   new Alert(Alert.AlertType.ERROR, "Please select branch").show();
-               } else {
-                   try {
-                       BranchDTO branchDTO = branchBO.searchByLocation(cmbbranch.getValue());
-                       userBo.save(new UserDTO(user, email, pass,tel, branchDTO));
-                       new Alert(Alert.AlertType.CONFIRMATION, "Register Successful").show();
-                   } catch (SQLException | ClassNotFoundException e) {
-                       throw new RuntimeException(e);
-                   }
-               }
-       }
         }
 
 

@@ -27,7 +27,7 @@ public class BorrowingDAOImpl implements BorrowingDAO {
     public List<BorrowingBooks> getUserList(String email) throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE email='"+email+"'").list();
+        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE user.email='"+email+"'").list();
         transaction.commit();
         session.close();
         return list;
@@ -38,11 +38,12 @@ public class BorrowingDAOImpl implements BorrowingDAO {
     public List<BorrowingBooks> getNotReturnList(LocalDate date) throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE date='"+date+"'").list();
+        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE returnDate <= :date and status='pending'").setParameter("date", date).list();
         transaction.commit();
         session.close();
         return list;
     }
+
 
     @Override
     public boolean save(BorrowingBooks entity) throws SQLException, ClassNotFoundException {

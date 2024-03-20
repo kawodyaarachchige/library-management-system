@@ -1,125 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.BookFormController">
    <children>
-      <TextField fx:id="txtSearch" layoutX="421.0" layoutY="79.0" onKeyTyped="#txtSearchOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Search" styleClass="branch" />
-      <ComboBox fx:id="cmbBranch" layoutX="241.0" layoutY="83.0" onAction="#cmbBranchOnAction" prefHeight="30.0" prefWidth="168.0" promptText="Branches" styleClass="branch" />
-      <Button layoutX="712.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="30.0" prefWidth="99.0" text="Search">
+      <TextField fx:id="txtSearch" layoutX="984.0" layoutY="46.0" onKeyTyped="#txtSearchOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Search" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+      <ComboBox fx:id="cmbBranch" layoutX="799.0" layoutY="50.0" onAction="#cmbBranchOnAction" prefHeight="30.0" prefWidth="168.0" promptText="Branches" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+      <Button layoutX="1269.0" layoutY="53.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="30.0" prefWidth="99.0" stylesheets="@../../asserts/styles/borrowUser.css" text="SEARCH">
       </Button>
-      <Label layoutX="198.0" layoutY="201.0" text="Book Id:">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="440.0" layoutY="201.0" text="Title:">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="649.0" layoutY="202.0" text="Return before:">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBorrowBookId" layoutX="277.0" layoutY="200.0" prefHeight="26.0" prefWidth="89.0">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBorrowBookTitle" layoutX="497.0" layoutY="201.0" prefHeight="26.0" prefWidth="89.0">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBorrowBookReturnDate" layoutX="783.0" layoutY="202.0" prefHeight="26.0" prefWidth="89.0">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblBookId" layoutX="207.0" layoutY="324.0" opacity="0.53" text="Book Id:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblTitle" layoutX="206.0" layoutY="289.0" text="Title:">
-         <font>
-            <Font name="Arial Black" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblAuthor" layoutX="451.0" layoutY="323.0" text="Author:">
-         <font>
-            <Font name="Arial Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblGenre" layoutX="453.0" layoutY="294.0" text="Genre:">
-         <font>
-            <Font name="Arial Bold" size="17.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnSelect" layoutX="580.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnSelectOnAction" prefHeight="36.0" prefWidth="80.0" text="Add">
-      </Button>
-      <TableView fx:id="tblBook" layoutX="74.0" layoutY="379.0" onMouseClicked="#tblOnAction" prefHeight="348.0" prefWidth="610.0">
+      <TableView fx:id="tblBook" layoutX="691.0" layoutY="232.0" onMouseClicked="#tblOnAction" prefHeight="529.0" prefWidth="720.0" stylesheets="@../../asserts/styles/borrowUser.css">
          <columns>
-            <TableColumn prefWidth="130.0" text="ID" />
-            <TableColumn prefWidth="188.0" text="Title" />
-            <TableColumn prefWidth="167.0" text="Author" />
-            <TableColumn prefWidth="122.0" text="Genre" />
+            <TableColumn prefWidth="122.0" text="ID" />
+            <TableColumn prefWidth="241.0" text="Title" />
+            <TableColumn prefWidth="188.0" text="Author" />
+            <TableColumn prefWidth="215.0" text="Genre" />
          </columns>
       </TableView>
-      <Label layoutX="728.0" layoutY="268.0" text="Borrow ID:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtBorrowId" editable="false" layoutX="750.0" layoutY="286.0" prefHeight="37.0" prefWidth="262.0" promptText="Borrow Id" styleClass="branch" />
-      <Label layoutX="728.0" layoutY="329.0" text="User:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtUserMail" editable="false" layoutX="750.0" layoutY="348.0" prefHeight="37.0" prefWidth="262.0" promptText="Email" styleClass="branch" />
-      <Label layoutX="728.0" layoutY="390.0" text="Book ID:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtBookId" editable="false" layoutX="750.0" layoutY="409.0" prefHeight="37.0" prefWidth="262.0" promptText="Book Id" styleClass="branch" />
-      <Label layoutX="728.0" layoutY="570.0" text="Today:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtToday" editable="false" layoutX="750.0" layoutY="589.0" prefHeight="37.0" prefWidth="262.0" promptText="Today" styleClass="branch" />
-      <Label layoutX="728.0" layoutY="630.0" text="Return Date:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtReturnDate" editable="false" layoutX="750.0" layoutY="649.0" prefHeight="37.0" prefWidth="262.0" promptText="Return Date" styleClass="branch" />
-      <Button fx:id="btnBorrow" layoutX="826.0" layoutY="709.0" mnemonicParsing="false" onAction="#borrowOnAction" prefHeight="36.0" prefWidth="99.0" text="Borrow">
+      <AnchorPane layoutX="112.0" layoutY="270.0" prefHeight="491.0" prefWidth="557.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #5BE4A8; -fx-border-radius: 15;">
+         <children>
+            <Label layoutX="48.0" layoutY="58.0" text="Borrow ID:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="164.0" text="User:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="215.0" text="Book ID:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="327.0" text="Today:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="386.0" text="Return Date:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="272.0" text="Branch Location:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBorrowId" editable="false" layoutX="215.0" layoutY="43.0" prefHeight="37.0" prefWidth="310.0" promptText="Borrow Id" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <TextField fx:id="txtUserMail" editable="false" layoutX="215.0" layoutY="150.0" prefHeight="37.0" prefWidth="310.0" promptText="Email" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <TextField fx:id="txtBookId" editable="false" layoutX="215.0" layoutY="202.0" prefHeight="37.0" prefWidth="310.0" promptText="Book Id" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <TextField fx:id="txtToday" editable="false" layoutX="215.0" layoutY="313.0" prefHeight="37.0" prefWidth="310.0" promptText="Today" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <TextField fx:id="txtReturnDate" editable="false" layoutX="215.0" layoutY="373.0" prefHeight="37.0" prefWidth="310.0" promptText="Return Date" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <TextField fx:id="txtBranchLocation" editable="false" layoutX="215.0" layoutY="257.0" prefHeight="37.0" prefWidth="310.0" promptText="Branch" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <Label layoutX="46.0" layoutY="112.0" text="Book Name:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtBookName" editable="false" layoutX="215.0" layoutY="99.0" prefHeight="37.0" prefWidth="310.0" promptText="Book Name" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
+            <Button fx:id="btnBorrow" layoutX="443.0" layoutY="439.0" mnemonicParsing="false" onAction="#borrowOnAction" prefHeight="36.0" prefWidth="99.0" stylesheets="@../../asserts/styles/add.css" text="BORROW">
       </Button>
-      <Label layoutX="728.0" layoutY="510.0" text="Branch Location:">
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="112.0" layoutY="164.0" prefHeight="87.0" prefWidth="557.0" style="-fx-background-color: white; -fx-border-color: #5BE4A8; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <Label fx:id="lblBookId" layoutX="144.0" layoutY="34.0" opacity="0.53" stylesheets="@../../asserts/styles/add.css" text="Book Id:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTitle" layoutX="16.0" layoutY="30.0" stylesheets="@../../asserts/styles/add.css" text="Title:">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAuthor" layoutX="356.0" layoutY="32.0" stylesheets="@../../asserts/styles/add.css" text="Author:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGenre" layoutX="264.0" layoutY="33.0" stylesheets="@../../asserts/styles/add.css" text="Genre:">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSelect" layoutX="465.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnSelectOnAction" prefHeight="36.0" prefWidth="80.0" stylesheets="@../../asserts/styles/add.css" text="ADD">
+      </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="112.0" layoutY="58.0" text="BORROW BOOK">
          <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="Apple LiGothic Medium" size="34.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBranchLocation" editable="false" layoutX="750.0" layoutY="529.0" prefHeight="37.0" prefWidth="262.0" promptText="Branch" styleClass="branch" />
-      <Label layoutX="728.0" layoutY="451.0" text="Book Name:">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtBookName" editable="false" layoutX="750.0" layoutY="469.0" prefHeight="37.0" prefWidth="262.0" promptText="Book Name" styleClass="branch" />
+      <Label fx:id="back" layoutX="52.0" layoutY="754.0" onMouseClicked="#lblBackOnAction" text="BACK" />
+      <ImageView fitHeight="37.0" fitWidth="43.0" layoutX="328.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asserts/icons/icons8-book.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="26.0" layoutX="21.0" layoutY="749.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asserts/icons/icons8-back-64.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="693.0" layoutY="127.0" prefHeight="87.0" prefWidth="691.0" style="-fx-border-color: #5BE4A8; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <Label layoutX="12.0" layoutY="51.0" text="Book Id:">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="186.0" layoutY="49.0" text="Title:">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="394.0" layoutY="49.0" text="Return before:">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBorrowBookId" layoutX="90.0" layoutY="50.0" prefHeight="26.0" prefWidth="89.0">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBorrowBookTitle" layoutX="230.0" layoutY="49.0" prefHeight="26.0" prefWidth="158.0">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblBorrowBookReturnDate" layoutX="512.0" layoutY="46.0" prefHeight="26.0" prefWidth="158.0">
+               <font>
+                  <Font name="System Font" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStatus" alignment="CENTER" layoutX="19.0" layoutY="5.0" prefHeight="24.0" prefWidth="656.0" textFill="#ee5d5d">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

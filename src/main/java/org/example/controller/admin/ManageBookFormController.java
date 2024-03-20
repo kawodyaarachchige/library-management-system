@@ -27,13 +27,7 @@ public class ManageBookFormController {
     public TextField txtAuthor;
     public JFXComboBox<String> cmbStatus;
     public JFXComboBox <String> cmbBranches;
-  /*  public TableColumn columnBookId;
-    public TableColumn columnTitle;
-    public TableColumn columnAuthor;
-    public TableColumn columnStatus;*/
     public ComboBox <String>cmbBran;
-
-
     public TextField txtTitle;
     public TableView <BookTM>tblBook;
     public Label back;
@@ -157,54 +151,12 @@ public class ManageBookFormController {
     }
 
     private void searchBook() {
-        /*System.out.println("searching");
         String title = txtSearch.getText();
-        String branch = cmbBran.getValue();
-
-        //Load all books in the library
-        try {
-            String[] arr = branch.split(" - ");
-            String branchID = arr[0];
-
-            BranchDTO dto = branchBO.searchByLocation(branchID);
-            List<BookDTO> all = bookBO.searchByTitle(title, dto.getId());
-            List<BookDTO> allBooksInLibraries = bookBO.getAll();
-            for(BookDTO bookDTO : allBooksInLibraries){
-                if(bookDTO.getTitle().equals(title)){
-                    txtTitle.setText(bookDTO.getTitle());
-                    txtAuthor.setText(bookDTO.getAuthor());
-                    txtId.setText(bookDTO.getId());
-                    txtGenre.setText(bookDTO.getGenre());
-                }
-            }
-
-            tblBook.getItems().clear();
-            for (BookDTO bookDTO : all) {
-                tblBook.getItems().add(new BookTM(bookDTO.getId(), bookDTO.getTitle(), bookDTO.getAuthor(), bookDTO.getStatus()));
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }*/
-   /*     try{
-            BookDTO search = bookBO.search(txtSearch.getText());
-            if (search == null) {
-                new Alert(Alert.AlertType.ERROR, "Book Not Found").show();
-            }else {
-                txtTitle.setText(search.getTitle());
-                txtAuthor.setText(search.getAuthor());
-                txtId.setText(search.getId());
-                txtGenre.setText(search.getGenre());
-                *//*cmbStatus.setValue(search.getStatus());
-                cmbBranches.setValue(search.getBranch().getLocation());*//*
-            }
-        }catch (SQLException | ClassNotFoundException e){
-            throw new RuntimeException(e);
-        }
-*/  String title = txtSearch.getText();
         String branch = cmbBran.getValue();
 
         try {
             BranchDTO dto = branchBO.searchByLocation(branch);
+            System.out.println(dto.getId()+" "+dto.getLocation());
             List<BookDTO> all = bookBO.searchByTitle(title, dto.getId());
             tblBook.getItems().clear();
             for (BookDTO bookDTO : all) {
@@ -221,9 +173,9 @@ public class ManageBookFormController {
     try {
         Parent load = FXMLLoader.load(getClass().getResource("/view/admin/dashboard_form.fxml"));
         Scene scene1 = new Scene(load);
-        Stage stage1 = (Stage)back .getScene().getWindow();
+        Stage stage1 = (Stage)back.getScene().getWindow();
         stage1.setScene(scene1);
-        stage1.setTitle("Login Form");
+        stage1.setTitle("THE LIBRARY");
         stage1.centerOnScreen();
 
     }catch (IOException e){
@@ -239,4 +191,32 @@ public class ManageBookFormController {
         initialize();
     }
 
+    public void tblOnAction(MouseEvent mouseEvent) {
+        BookTM tm = tblBook.getSelectionModel().getSelectedItem();
+
+        try {
+            BookDTO search = bookBO.search(tm.getId());
+            txtId.setText(search.getId());
+            txtTitle.setText(search.getTitle());
+            txtAuthor.setText(search.getAuthor());
+            txtGenre.setText(search.getGenre());
+            cmbStatus.setValue(search.getStatus());
+            cmbBran.setValue(search.getBranch().getLocation());
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+   /* BookTm tm = tblBooks.getSelectionModel().getSelectedItem();
+        try {
+                BookDTO search = bookBOImpl.search(tm.getId());
+                txtId.setText(search.getId());
+                txtName.setText(search.getTitle());
+                txtAuthor.setText(search.getAuthor());
+                txtGenre.setText(search.getGenre());
+                cmbStatus.setValue(search.getStatus());
+                cmbBranch.setValue(search.getBranch().getLocation());
+                } catch (SQLException | ClassNotFoundException e) {
+                throw new RuntimeException(e);
+                }
+                }*/

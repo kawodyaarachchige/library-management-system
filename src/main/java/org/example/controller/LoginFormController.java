@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.example.bo.BOFactory;
@@ -27,7 +30,14 @@ public class LoginFormController {
     public Button signin;
     public Button login;
 
+    public static String email;
+
     public static String loggedUserEmail;
+
+    public static String loggedUserName;
+    public TextField textview;
+    public ImageView imgLock;
+    public ImageView imgView;
     AdminBO adminBoImpl = (AdminBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ADMIN);
 
     UserBO userBoImpl = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
@@ -44,10 +54,12 @@ public class LoginFormController {
 
         if(type.equals("Admin")) {
             try {
+                boolean isCredentialsOK=false;
                 List<AdminDTO> all = adminBoImpl.getAll();
                 for (AdminDTO adminDTO : all) {
                     if (adminDTO.getName().equals(user) && adminDTO.getPassword().equals(pass)) {
                         new Alert(Alert.AlertType.INFORMATION, "Welcome Admin " + user).show();
+                        loggedUserName = adminDTO.getName();
                         try {
                             Parent root = FXMLLoader.load(getClass().getResource("/view/admin/dashboard_form.fxml"));
                             Scene scene1 = new Scene(root);
@@ -55,39 +67,46 @@ public class LoginFormController {
                             stage1.setScene(scene1);
                             stage1.setTitle("Sign Up Form");
                             stage1.centerOnScreen();
+                            isCredentialsOK = true;
                         } catch (Exception e) {
                             System.out.println(e);
                         }
-                    }else{
-                        new Alert(Alert.AlertType.ERROR, "Invalid Admin credentials..").show();
                     }
+                }
+                if(isCredentialsOK==false){
+                    new Alert(Alert.AlertType.ERROR, "Invalid Admin credentials..").show();
                 }
             } catch (Exception e) {
                 System.out.println(e);
             }
         }else{
             try {
+                boolean isCredentialsOK=false;
                 List<UserDTO> allUsers = userBoImpl.getAll();
-                for(UserDTO userDTO:allUsers){
-                    if(userDTO.getName().equals(user) && userDTO.getPassword().equals(pass)){
+                for(UserDTO userDTO:allUsers) {
+                    if (userDTO.getName().equals(user) && userDTO.getPassword().equals(pass)) {
                         new Alert(Alert.AlertType.INFORMATION, "Welcome User " + user).show();
-                        loggedUserEmail=userDTO.getEmail();
+                        loggedUserEmail = userDTO.getEmail();
                         try {
+                            email = userDTO.getEmail();
                             Parent root = FXMLLoader.load(getClass().getResource("/view/user/userDash_form.fxml"));
                             Scene scene1 = new Scene(root);
                             Stage stage1 = (Stage) login.getScene().getWindow();
                             stage1.setScene(scene1);
                             stage1.setTitle("Sign Up Form");
                             stage1.centerOnScreen();
+                            isCredentialsOK=true;
                         } catch (Exception e) {
                             System.out.println(e);
                         }
-                    }else{
-                        new Alert(Alert.AlertType.ERROR, "Invalid User credentials..").show();
                     }
+                }
+                if(isCredentialsOK==false){
+                    new Alert(Alert.AlertType.ERROR, "Invalid User credentials..").show();
                 }
             }catch (Exception e){
                 System.out.println(e);
+
             }
 
         }
@@ -111,6 +130,21 @@ public class LoginFormController {
                 System.out.println(e);
             }
 
+    }
 
-        }
+    public void imgViewOnAction(MouseEvent mouseEvent) {
+        textview.setText(password.getText());
+        password.setVisible(false);
+        imgView.setVisible(false);
+        textview.setVisible(true);
+    }
+
+    public void imgLockOnAction(MouseEvent mouseEvent) {
+        password.setText(textview.getText());
+        textview.setVisible(false);
+        imgView.setVisible(true);
+        password.setVisible(true);
+
+
+    }
 }

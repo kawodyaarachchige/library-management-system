@@ -1,0 +1,60 @@
+.text-field{
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+.combo-box{
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(128, 64, 0, 0) rgba(255, 255, 0, 0) rgb(112,218,156) rgba(245, 171, 31, 0);
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+#back{
+    -fx-text-fill-color: black;
+    -fx-font-weight: bold;
+}
+#back:hover{
+    -fx-text-fill:  rgb(112,218,156);
+}
+#lblTitle{
+    -fx-text-fill:#A3E4D7;
+}
+#lblAuthor{
+    -fx-text-fill:#D7BDE2 ;
+}
+#lblGenre{
+    -fx-text-fill: #FAD7A0;
+}
+#btnSelect{
+    -fx-background-color:lightcoral;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#btnBorrow{
+    -fx-background-color: skyblue;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+#btnBorrow:hover ,#btnSelect:hover{
+    -fx-background-color: grey;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}

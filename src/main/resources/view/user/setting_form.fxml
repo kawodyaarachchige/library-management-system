@@ -5,39 +5,105 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.SettingFormController">
    <children>
-      <TextField fx:id="txtEmail" layoutX="346.0" layoutY="130.0" prefHeight="49.0" prefWidth="354.0" promptText="Email" styleClass="branch" />
-      <TextField fx:id="txtCurrentPW" layoutX="147.0" layoutY="333.0" prefHeight="49.0" prefWidth="282.0" promptText="Current Password" styleClass="branch" />
-      <TextField fx:id="txtNewPW" layoutX="147.0" layoutY="404.0" prefHeight="49.0" prefWidth="282.0" promptText="New Password" styleClass="branch" />
-      <TextField fx:id="txtREPW" layoutX="147.0" layoutY="473.0" prefHeight="49.0" prefWidth="282.0" promptText="Re-Enter New Password" styleClass="branch" />
-      <TextField fx:id="txtUsername" layoutX="637.0" layoutY="333.0" prefHeight="49.0" prefWidth="282.0" promptText="Username" styleClass="user" />
-      <TextField fx:id="txtTelephone" layoutX="637.0" layoutY="404.0" prefHeight="49.0" prefWidth="282.0" promptText="Telephone" styleClass="branch" />
-      <ComboBox fx:id="cmbBranch" layoutX="702.0" layoutY="476.0" prefHeight="42.0" prefWidth="151.0" promptText="Branch" styleClass="branch" stylesheets="@../../../../../../../../../../Downloads/Library-Management/src/main/resources/styles/combobox.css" />
-      <Label layoutX="62.0" layoutY="245.0" text="Change User Password">
+      <AnchorPane layoutX="855.0" layoutY="212.0" prefHeight="505.0" prefWidth="487.0" style="-fx-background-color: white; -fx-border-color: #37D390; -fx-background-radius: 15; -fx-border-radius: 15;">
+         <children>
+            <Label layoutX="172.0" layoutY="22.0" text="Change  Details">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtUsername" layoutX="169.0" layoutY="87.0" prefHeight="49.0" prefWidth="293.0" promptText="Enter Username" styleClass="user" stylesheets="@../../asserts/styles/setting.css" />
+            <TextField fx:id="txtTelephone" layoutX="169.0" layoutY="158.0" prefHeight="49.0" prefWidth="293.0" promptText="Enter Number :" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+            <ComboBox fx:id="cmbBranch" layoutX="171.0" layoutY="246.0" prefHeight="42.0" prefWidth="293.0" promptText="Branches" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+            <Label layoutX="35.0" layoutY="110.0" text="User  Name  :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="184.0" text="Mobile Number :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="42.0" layoutY="262.0" text="Branch :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Button layoutX="206.0" layoutY="381.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="42.0" prefWidth="117.0" stylesheets="@../../asserts/styles/setting.css" text="UPDATE">
+               <styleClass>
+                  <String fx:value="branch" />
+                  <String fx:value="update" />
+               </styleClass>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="72.0" layoutY="213.0" prefHeight="505.0" prefWidth="487.0" style="-fx-background-color: white; -fx-border-color: #37D390; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <TextField fx:id="txtCurrentPW" layoutX="179.0" layoutY="102.0" prefHeight="49.0" prefWidth="282.0" promptText="Enter Your Current Password" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+            <TextField fx:id="txtNewPW" layoutX="177.0" layoutY="173.0" prefHeight="49.0" prefWidth="282.0" promptText="Enter Your New Password" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+            <TextField fx:id="txtREPW" layoutX="179.0" layoutY="242.0" prefHeight="49.0" prefWidth="282.0" promptText="Re-Enter New Password" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+            <Button layoutX="191.0" layoutY="380.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="42.0" prefWidth="117.0" stylesheets="@../../asserts/styles/setting.css" text="SAVE">
+               <styleClass>
+                  <String fx:value="branch" />
+                  <String fx:value="save" />
+               </styleClass>
+            </Button>
+            <Label layoutX="32.0" layoutY="126.0" text="Current Password :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="270.0" text="Password :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="34.0" layoutY="201.0" text="New Password :">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="157.0" layoutY="37.0" text="Change Password">
+               <font>
+                  <Font name="Arial Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="68.0" layoutY="55.0" text="User Setting">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font name="Apple LiGothic Medium" size="46.0" />
          </font>
       </Label>
-      <Label layoutX="570.0" layoutY="245.0" text="Change User Details">
+      <TextField fx:id="txtEmail" layoutX="932.0" layoutY="85.0" prefHeight="49.0" prefWidth="354.0" promptText="Email" styleClass="branch" stylesheets="@../../asserts/styles/setting.css" />
+      <Label layoutX="831.0" layoutY="99.0" text="User  Email  :">
          <font>
-            <Font name="Arial Bold" size="20.0" />
+            <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="740.0" layoutY="547.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="36.0" prefWidth="100.0" text="Update">
-         <styleClass>
-            <String fx:value="branch" />
-            <String fx:value="update" />
-         </styleClass>
-      </Button>
-      <Button layoutX="245.0" layoutY="547.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="36.0" prefWidth="81.0" text="Save">
-         <styleClass>
-            <String fx:value="branch" />
-            <String fx:value="save" />
-         </styleClass>
-      </Button>
+      <ImageView fitHeight="34.0" fitWidth="33.0" layoutX="275.0" layoutY="62.0">
+         <image>
+            <Image url="@../../asserts/icons/icons8-users-settings-32.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="263.0" fitWidth="361.0" layoutX="531.0" layoutY="456.0">
+         <image>
+            <Image url="@../../asserts/image/setting.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="back" layoutX="58.0" layoutY="748.0" onMouseClicked="#lblBackOnAction" text="BACK" />
+      <ImageView fitHeight="23.0" fitWidth="26.0" layoutX="27.0" layoutY="745.0">
+         <image>
+            <Image url="@../../asserts/icons/icons8-back-64.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

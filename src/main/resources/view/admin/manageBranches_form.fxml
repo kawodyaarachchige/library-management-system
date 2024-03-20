@@ -6,61 +6,84 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="manageBranch" prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.ManageBranchesFormController">
+<AnchorPane fx:id="manageBranch" prefHeight="780.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.ManageBranchesFormController">
    <children>
-      <AnchorPane layoutX="44.0" layoutY="110.0" prefHeight="639.0" prefWidth="560.0" style="-fx-background-color: #D9F9E4;">
+      <AnchorPane layoutX="47.0" layoutY="111.0" prefHeight="412.0" prefWidth="541.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #37D390; -fx-border-radius: 15;">
          <children>
-            <TextField fx:id="txtLocation" layoutX="173.0" layoutY="247.0" onAction="#txtLocationOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Location" styleClass="branch" />
-            <TextField fx:id="txtEmail" layoutX="173.0" layoutY="307.0" prefHeight="37.0" prefWidth="262.0" promptText="Email" styleClass="branch" />
-            <Label layoutX="73.0" layoutY="257.0" text="Location :">
+            <TextField fx:id="txtLocation" layoutX="182.0" layoutY="208.0" onAction="#txtLocationOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Location" styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+            <TextField fx:id="txtEmail" layoutX="184.0" layoutY="262.0" prefHeight="37.0" prefWidth="262.0" promptText="Email" styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+            <Label layoutX="59.0" layoutY="217.0" text="Location :">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="System Font" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="318.0" text="Email :">
+            <Label layoutX="61.0" layoutY="275.0" text="Email :">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
+                  <Font name="System Font" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="saveBranch" layoutX="19.0" layoutY="452.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="36.0" prefWidth="91.0" text="Save">
+            <Button fx:id="saveBranch" layoutX="31.0" layoutY="334.0" mnemonicParsing="false" onAction="#saveOnAction" prefHeight="36.0" prefWidth="108.0" stylesheets="@../../asserts/styles/branch.css" text="SAVE">
             </Button>
-            <Button fx:id="updateBranch" layoutX="172.0" layoutY="452.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="36.0" prefWidth="91.0" text="Update">
+            <Button fx:id="updateBranch" layoutX="159.0" layoutY="333.0" mnemonicParsing="false" onAction="#updateOnAction" prefHeight="36.0" prefWidth="108.0" stylesheets="@../../asserts/styles/branch.css" text="UPDATE">
             </Button>
-            <Button fx:id="deleteBranch" layoutX="482.0" layoutY="452.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="91.0" text="Delete">
+            <Button fx:id="deleteBranch" layoutX="411.0" layoutY="333.0" mnemonicParsing="false" onAction="#deleteOnAction" prefHeight="36.0" prefWidth="108.0" stylesheets="@../../asserts/styles/branch.css" text="DELETE">
             </Button>
-            <Button fx:id="clearBtn" layoutX="332.0" layoutY="452.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="36.0" prefWidth="91.0" text="clear">
+            <Button fx:id="clearBtn" layoutX="285.0" layoutY="333.0" mnemonicParsing="false" onAction="#clearOnAction" prefHeight="36.0" prefWidth="108.0" stylesheets="@../../asserts/styles/branch.css" text="CLEAR">
             </Button>
+            <TextField fx:id="txtId" layoutX="183.0" layoutY="33.0" onAction="#txtIdOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Branch Id" styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+            <Label layoutX="59.0" layoutY="49.0" text="Branch Id :">
+               <font>
+                  <Font name="System Font" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <TextField fx:id="txtId" layoutX="231.0" layoutY="155.0" onAction="#txtIdOnAction" prefHeight="37.0" prefWidth="262.0" promptText="Branch Id" styleClass="branch" />
-      <TextField fx:id="txtTelephone" layoutX="231.0" layoutY="215.0" prefHeight="37.0" prefWidth="262.0" promptText="Telephone " styleClass="branch" />
-      <TextField fx:id="txtAddress" layoutX="231.0" layoutY="273.0" prefHeight="37.0" prefWidth="262.0" promptText="Address" styleClass="branch" />
-      <Label layoutX="108.0" layoutY="166.0" text="Branch Id :">
+      <TextField fx:id="txtTelephone" layoutX="228.0" layoutY="202.0" prefHeight="37.0" prefWidth="262.0" promptText="Telephone " styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+      <TextField fx:id="txtAddress" layoutX="229.0" layoutY="264.0" prefHeight="37.0" prefWidth="262.0" promptText="Address" styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+      <Label layoutX="104.0" layoutY="211.0" text="Telephone No :">
          <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="System Font" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="108.0" layoutY="226.0" text="Telephone No :">
+      <Label layoutX="105.0" layoutY="271.0" text="Address :">
          <font>
-            <Font name="Arial Bold" size="14.0" />
+            <Font name="System Font" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="113.0" layoutY="284.0" text="Address :">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="cmbBranch" layoutX="400.0" layoutY="68.0" onAction="#cmbBranchOnAction" prefHeight="30.0" prefWidth="168.0" promptText="Branches" styleClass="branch" />
-      <TableView fx:id="tblBranch" layoutX="672.0" layoutY="88.0" onMouseClicked="#tblOnAction" prefHeight="625.0" prefWidth="711.0">
+      <ComboBox fx:id="cmbBranch" layoutX="1184.0" layoutY="48.0" onAction="#cmbBranchOnAction" prefHeight="34.0" prefWidth="200.0" promptText="Branches" styleClass="branch" stylesheets="@../../asserts/styles/branch.css" />
+      <TableView fx:id="tblBranch" layoutX="644.0" layoutY="112.0" onMouseClicked="#tblOnAction" prefHeight="590.0" prefWidth="748.0" stylesheets="@../../asserts/styles/branch.css">
          <columns>
             <TableColumn prefWidth="148.27190399169922" text="Id" />
             <TableColumn prefWidth="192.54385375976562" text="Location" />
-            <TableColumn prefWidth="210.54232788085938" text="Telephone" />
-            <TableColumn minWidth="0.0" prefWidth="257.81732177734375" text="Email" />
+            <TableColumn prefWidth="202.0" text="Telephone" />
+            <TableColumn minWidth="0.0" prefWidth="267.0" text="Email" />
          </columns>
       </TableView>
+      <Label layoutX="128.0" layoutY="57.0" text="Manage Branch">
+         <font>
+            <Font name="Apple LiGothic Medium" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="back" layoutX="54.0" layoutY="744.0" onMouseClicked="#lblBackOnAction" text="BACK" />
+      <ImageView layoutX="47.0" layoutY="49.0" opacity="0.54">
+         <image>
+            <Image url="@../../asserts/icons/icons8-books-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="212.0" fitWidth="310.0" layoutX="180.0" layoutY="571.0">
+         <image>
+            <Image url="@../../asserts/image/6766930-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="22.0" fitWidth="25.0" layoutX="28.0" layoutY="741.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../asserts/icons/icons8-back-64.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

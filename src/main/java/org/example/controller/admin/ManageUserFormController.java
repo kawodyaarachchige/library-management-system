@@ -1,12 +1,13 @@
 package org.example.controller.admin;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.BranchBO;
 import org.example.bo.custom.UserBO;
@@ -25,6 +26,7 @@ public class ManageUserFormController {
     public TextField txtTelephone;
     public ComboBox <String> cmbBranch;
     public TableView <UserTM>tblUser;
+    public Label back;
 
     UserBO userBo = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
     BranchBO branchBo = (BranchBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BRANCH);
@@ -150,4 +152,17 @@ public class ManageUserFormController {
         initialize();
     }
 
+    public void lblBackOnAction(MouseEvent mouseEvent) {
+        try {
+            Parent load = FXMLLoader.load(getClass().getResource("/view/admin/dashboard_form.fxml"));
+            Scene scene1 = new Scene(load);
+            Stage stage1 = (Stage) back.getScene().getWindow();
+            stage1.setScene(scene1);
+            stage1.setTitle("Admin Dashboard");
+            stage1.centerOnScreen();
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
 }

@@ -1,13 +1,14 @@
 package org.example.controller.admin;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.BookBO;
 import org.example.bo.custom.BorrowingBO;
@@ -16,10 +17,14 @@ import org.example.dto.BookDTO;
 import org.example.dto.BorrowingBookDTO;
 import org.example.dto.tm.BorrowBookTM;
 import org.example.dto.tm.BorrowTM;
+import org.example.validation.Mail;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
+
+import static org.example.controller.LoginFormController.email;
 
 
 public class BorrowingBooksController {
@@ -30,6 +35,7 @@ public class BorrowingBooksController {
     public ComboBox <String> cmbStatus;
     public TextField txtEmail;
     public AnchorPane borrowingBook;
+    public Label back;
 
     BorrowingBO borrowingBO = (BorrowingBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BORROW);
     BookBO bookBO = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
@@ -136,7 +142,7 @@ public class BorrowingBooksController {
             throw new RuntimeException(e);
         }
     }
-    private void setCellValueFactory (){}
+
     public void tblOnAction(MouseEvent mouseEvent) {
         BorrowTM tm = tblBorrow.getSelectionModel().getSelectedItem();
         try {
@@ -148,6 +154,43 @@ public class BorrowingBooksController {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void lablBackOnAction(MouseEvent mouseEvent) {
+        try {
+            Parent load = FXMLLoader.load(getClass().getResource("/view/admin/dashboard_form.fxml"));
+            Scene scene1 = new Scene(load);
+            Stage stage1 = (Stage) back.getScene().getWindow();
+            stage1.setScene(scene1);
+            stage1.setTitle("DashBoard Form");
+            stage1.centerOnScreen();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    private void setCellValueFactory() {
+        tblBorrow.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        tblBorrow.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("user"));
+        tblBorrow.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("book"));
+        tblBorrow.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("borrowDate"));
+        tblBorrow.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        tblBorrow.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("status"));
+    }
+
+    public void btninnformOnAction(ActionEvent actionEvent) {
+      try{
+        Mail mail = new Mail();
+        mail.setMsg("Hello User! \n\n Please return all borrowed books promptly to the library to ensure their availability for other readers. \n\nThank you for your cooperation.");
+        mail.setTo(txtUserMail.getText());
+        mail.setSubject("OTP Verification");
+        Thread thread = new Thread (mail);
+        thread.start();
+        new Alert(Alert.AlertType.CONFIRMATION, "Mail Sent Successfully").show();
+    }catch (Exception e){
+        new Alert(Alert.AlertType.ERROR, "Something went wrong!").show();
+    }
     }
 
 }

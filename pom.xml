@@ -49,6 +49,11 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.4.2.Final</version>
         </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version> <!-- Use the latest version available -->
+        </dependency>
 
     </dependencies>
 

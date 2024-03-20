@@ -1,15 +1,23 @@
 package org.example.controller.user;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.BranchBO;
 import org.example.bo.custom.UserBO;
+import org.example.controller.LoginFormController;
 import org.example.dto.UserDTO;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class SettingFormController {
@@ -20,16 +28,16 @@ public class SettingFormController {
     public TextField txtUsername;
     public TextField txtTelephone;
     public ComboBox <String>cmbBranch;
-    @Setter
-    private String email;
+
 
     public UserDTO userdto;
+    public Label back;
 
     BranchBO branchBOImpl = (BranchBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BRANCH);
     UserBO userBOImpl = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     public void initialize() throws ClassNotFoundException {
-        txtEmail.setEditable(false);
+        txtEmail.setText(LoginFormController.loggedUserEmail);
         initializeUser();
         cmbBranch.setEditable(false);
     }
@@ -87,7 +95,7 @@ public class SettingFormController {
                 new Alert(Alert.AlertType.ERROR, "Password does not match").show();
             } else {
                 try {
-                    userBOImpl.save(new UserDTO(userdto.getName(), email, newPw, userdto.getTelephone(), userdto.getBranch()));
+                    userBOImpl.update(new UserDTO(userdto.getName(), email, newPw, userdto.getTelephone(), userdto.getBranch()));
                     new Alert(Alert.AlertType.CONFIRMATION, "Changed Password Successfully").show();
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
@@ -95,4 +103,21 @@ public class SettingFormController {
             }
         }
     }
+
+    public void lblBackOnAction(MouseEvent mouseEvent) {
+
+            try {
+                Parent load = FXMLLoader.load(getClass().getResource("/view/user/userDash_form.fxml"));
+                Scene scene1 = new Scene(load);
+                Stage stage1 = (Stage) back.getScene().getWindow();
+                stage1.setScene(scene1);
+                stage1.setTitle("Login Form");
+                stage1.centerOnScreen();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+    }
+
 }

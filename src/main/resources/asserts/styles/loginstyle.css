@@ -55,7 +55,7 @@
      -fx-text-fill: black;
      -fx-cursor: hand;
  }
-#username ,#password {
+#username ,#password , #textview{
     -fx-background-color: white;
     -fx-background-radius: 15;
     -fx-border-color:rgb(112,218,156) ;

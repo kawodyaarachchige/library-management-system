@@ -15,34 +15,40 @@
     <children>
       <AnchorPane layoutX="18.0" layoutY="28.0" prefHeight="444.0" prefWidth="380.0" style="-fx-background-color: #D9F9E4; -fx-border-radius: 18; -fx-background-radius: 18;">
          <children>
-            <Label layoutX="46.0" layoutY="124.0" text="User Name :">
+            <Label layoutX="46.0" layoutY="125.0" text="User Name :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="45.0" layoutY="198.0" text="Password :">
+            <Label layoutX="45.0" layoutY="202.0" text="Password :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="username" layoutX="39.0" layoutY="153.0" prefHeight="37.0" prefWidth="296.0" promptText="Enter username" />
-            <Label layoutX="237.0" layoutY="262.0" text="forget password" />
-            <Label layoutX="129.0" layoutY="361.0" text="Don't have Account yet?" />
-            <Button fx:id="login" layoutX="129.0" layoutY="317.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="LOG IN" />
-            <Button fx:id="signin" layoutX="129.0" layoutY="383.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="SIGN UP" />
-            <ComboBox fx:id="cmbaccounttype" layoutX="39.0" layoutY="74.0" opacity="0.66" prefHeight="37.0" prefWidth="296.0" promptText="Select Your Account Type" visibleRowCount="2" />
-            <Label layoutX="47.0" layoutY="45.0" text="Account Type :">
+            <TextField fx:id="username" layoutX="39.0" layoutY="156.0" prefHeight="37.0" prefWidth="296.0" promptText="Enter username" />
+            <Label layoutX="238.0" layoutY="272.0" text="forget password" />
+            <Label layoutX="131.0" layoutY="362.0" text="Don't have Account yet?" />
+            <Button fx:id="login" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="LOG IN" />
+            <Button fx:id="signin" layoutX="129.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="SIGN UP" />
+            <ComboBox fx:id="cmbaccounttype" layoutX="39.0" layoutY="68.0" opacity="0.66" prefHeight="37.0" prefWidth="296.0" promptText="Select Your Account Type" visibleRowCount="2" />
+            <Label layoutX="47.0" layoutY="41.0" text="Account Type :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password" layoutX="40.0" layoutY="224.0" prefHeight="37.0" prefWidth="296.0" promptText="Enter password" />
-            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="298.0" layoutY="160.0" opacity="0.8">
+            <TextField fx:id="textview" layoutX="41.0" layoutY="233.0" prefHeight="37.0" prefWidth="296.0" stylesheets="@../asserts/styles/loginstyle.css" />
+            <ImageView fx:id="imgLock" fitHeight="23.0" fitWidth="27.0" layoutX="299.0" layoutY="239.0" onMouseClicked="#imgLockOnAction" opacity="0.79">
+               <image>
+                  <Image url="@../asserts/icons/icons8-locked-30.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="password" layoutX="41.0" layoutY="233.0" prefHeight="37.0" prefWidth="296.0" promptText="Enter password" />
+            <ImageView fitHeight="23.0" fitWidth="27.0" layoutX="298.0" layoutY="162.0" opacity="0.8">
                <image>
                   <Image url="@../asserts/icons/icons8-user-30.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="300.0" layoutY="232.0" opacity="0.79">
+            <ImageView fx:id="imgView" fitHeight="22.0" fitWidth="23.0" layoutX="301.0" layoutY="240.0" onMouseClicked="#imgViewOnAction" opacity="0.79">
                <image>
                   <Image url="@../asserts/icons/icons8-show-password-30.png" />
                </image>
@@ -59,7 +65,7 @@
             <Image url="@../asserts/image/new2.png" />
          </image>
       </ImageView>
-      <Label layoutX="503.0" layoutY="80.0" text="library Management System" textFill="#0d0d0d">
+      <Label layoutX="458.0" layoutY="80.0" text="BookWorm library Management System" textFill="#0d0d0d">
          <font>
             <Font size="18.0" />
          </font>

@@ -1,10 +1,14 @@
 package org.example.controller.user;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.*;
 import org.example.controller.LoginFormController;
@@ -39,6 +43,8 @@ public class BookFormController {
     public TextField txtBookName;
     public Button btnAdd;
     public Button btnBorrow;
+    public Label back;
+    public Button btnSelect;
     BorrowingBO borrowingBO = (BorrowingBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BORROW);
     BookBO bookBO = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
     UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
@@ -62,6 +68,25 @@ public class BookFormController {
 
         clearFields();
 
+        try{
+            List<BorrowingBookDTO> userList = borrowingBO.getUserList(LoginFormController.loggedUserEmail);
+            for (BorrowingBookDTO borrowDTO : userList) {
+                System.out.println(borrowDTO.getId()+" "+borrowDTO.getStatus());
+                if (borrowDTO.getStatus().equals("Pending")) {
+                    lblStatus.setText("Return book on time :( Borrow another afterward.");
+                    lblBorrowBookId.setText(borrowDTO.getBook().getId());
+                    lblBorrowBookTitle.setText(borrowDTO.getBook().getTitle());
+                    lblBorrowBookReturnDate.setText(borrowDTO.getReturnDate().toString());
+                    btnSelect.setDisable(true);
+                    btnBorrow.setDisable(true);
+                    break;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
     private void clearFields() {
@@ -74,14 +99,16 @@ public class BookFormController {
     }
 
     public void start() throws SQLException, ClassNotFoundException {
-        List<BorrowingBookDTO> userList = borrowingBO.getUserList(txtUserMail.getText());
+        System.out.println("Start is running..");
+        List<BorrowingBookDTO> userList = borrowingBO.getUserList(LoginFormController.loggedUserEmail);
         for (BorrowingBookDTO borrowDTO : userList) {
+            System.out.println(borrowDTO.getId()+" "+borrowDTO.getStatus());
             if (borrowDTO.getStatus().equals("Pending")) {
-                lblStatus.setText("Please Return The Book");
+                lblStatus.setText("Only one book per borrower allowed :(");
                 lblBorrowBookId.setText(borrowDTO.getBook().getId());
                 lblBorrowBookTitle.setText(borrowDTO.getBook().getTitle());
                 lblBorrowBookReturnDate.setText(borrowDTO.getReturnDate().toString());
-                btnAdd.setDisable(true);
+                btnSelect.setDisable(true);
                 btnBorrow.setDisable(true);
                 break;
             }
@@ -169,5 +196,18 @@ public class BookFormController {
         tblBook.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("title"));
         tblBook.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("author"));
         tblBook.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("genre"));
+    }
+
+    public void lblBackOnAction(MouseEvent mouseEvent) {
+        try {
+            Parent load = FXMLLoader.load(getClass().getResource("/view/user/userDash_form.fxml"));
+            Scene scene1 = new Scene(load);
+            Stage stage1 = (Stage) back.getScene().getWindow();
+            stage1.setScene(scene1);
+            stage1.setTitle("DashBoard Form");
+            stage1.centerOnScreen();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

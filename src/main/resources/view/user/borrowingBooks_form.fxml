@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.BorrowingBooksFormController">
+<AnchorPane prefHeight="800.0" prefWidth="1434.0" style="-fx-background-color: #F3F3F3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.user.BorrowingBooksFormController">
    <children>
-      <TableView fx:id="tblBorrow" layoutX="83.0" layoutY="105.0" prefHeight="625.0" prefWidth="879.0">
+      <TableView fx:id="tblBorrow" layoutX="518.0" layoutY="116.0" prefHeight="625.0" prefWidth="869.0" stylesheets="@../../asserts/styles/history.css">
          <columns>
             <TableColumn prefWidth="123.0" text="ID" />
             <TableColumn prefWidth="133.0" text="User" />
@@ -17,5 +20,16 @@
             <TableColumn prefWidth="153.0" text="Status" />
          </columns>
       </TableView>
+      <Label layoutX="84.0" layoutY="49.0" text="Borrowing History">
+         <font>
+            <Font name="Apple LiGothic Medium" size="37.0" />
+         </font>
+      </Label>
+      <Label fx:id="back" layoutX="54.0" layoutY="733.0" onMouseClicked="#lblBackOnAction" text="BACK" />
+      <ImageView fitHeight="439.0" fitWidth="475.0" layoutX="40.0" layoutY="218.0">
+         <image>
+            <Image url="@../../asserts/image/dictionary-concept-illustration_114360-7609.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

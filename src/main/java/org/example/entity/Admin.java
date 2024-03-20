@@ -13,6 +13,7 @@ import lombok.*;
 @Entity
 public class Admin {
     @Id
+    @Column(unique = true, nullable = false)
     String email;
     String name;
     @Column(unique = true)

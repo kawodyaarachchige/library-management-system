@@ -9,16 +9,16 @@
    background: rgb(217,249,228);
     -fx-background-color:  radial-gradient(center 50% 50%, radius 100%, rgba(0,221,160,1) 2%, rgba(191,240,202,1) 52%);
 }
-#lgout{
+#logout{
     -fx-background-color: rgb(112,218,156);
     -fx-background-radius: 15;
     -fx-border-radius: 15;
 
-    -fx-font-size: 16;
+
     -fx-text-fill: black;
     -fx-cursor: hand;
 }
-#lgout:hover{
+#logout:hover{
     -fx-background-color: grey;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
@@ -27,10 +27,27 @@
     -fx-cursor: hand;
 }
 #manageBook,#books ,#branches ,#users{
+    -fx-background-color:  white;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
     -fx-border-color: #15F5BA;
     -fx-cursor: hand;
 
-
 }
+#back{
+    -fx-text-fill-color: black;
+    -fx-font-weight: bold;
+}
+#back:hover{
+    -fx-text-fill:  rgb(112,218,156);
+}
+#manageBook:hover,#books:hover,#branches:hover,#users:hover{
+    -fx-background-color:  rgb(112,218,156);
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #15F5BA;
+    -fx-cursor: hand;
+}
+
+
+

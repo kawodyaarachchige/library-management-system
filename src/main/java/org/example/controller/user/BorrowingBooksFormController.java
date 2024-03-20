@@ -1,11 +1,18 @@
 package org.example.controller.user;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.Setter;
 import org.example.bo.BOFactory;
 import org.example.bo.custom.BorrowingBO;
+import org.example.controller.LoginFormController;
 import org.example.dto.BorrowingBookDTO;
 import org.example.dto.tm.BorrowTM;
 
@@ -14,6 +21,7 @@ import java.util.List;
 
 public class BorrowingBooksFormController {
     public TableView <BorrowTM> tblBorrow;
+    public Label back;
 
     @Setter
     private String email;
@@ -21,6 +29,7 @@ public class BorrowingBooksFormController {
     BorrowingBO borrowingBO = (BorrowingBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BORROW);
 
     public void initialize() {
+        this.email=LoginFormController.email;
         if (email != null) {
             loadBorrowTable();
             setCellValueFactory();
@@ -50,6 +59,19 @@ public class BorrowingBooksFormController {
         tblBorrow.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("borrowDate"));
         tblBorrow.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         tblBorrow.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("status"));
+    }
+
+    public void lblBackOnAction(MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/user/userDash_form.fxml"));
+            Scene scene1 = new Scene(root);
+            Stage stage1 = (Stage) back.getScene().getWindow();
+            stage1.setScene(scene1);
+            stage1.setTitle("User Dashboard");
+            stage1.centerOnScreen();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 }
 
