@@ -11,25 +11,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminBOImpl implements AdminBO  {
-    AdminDAO adminDaoImpl = (AdminDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
+    AdminDAO adminDao = (AdminDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ADMIN);
     @Override
     public boolean save(AdminDTO dto) throws SQLException, ClassNotFoundException {
-        return adminDaoImpl.save(new Admin(dto.getEmail(), dto.getName(),dto.getTelephone(),dto.getPassword()));
+        return adminDao.save(new Admin(dto.getEmail(), dto.getName(),dto.getTelephone(),dto.getPassword()));
     }
 
     @Override
     public boolean update(AdminDTO dto) throws SQLException, ClassNotFoundException {
-        return adminDaoImpl.update(new Admin(dto.getName(),dto.getEmail(),dto.getTelephone(),dto.getPassword()));
+        return adminDao.update(new Admin(dto.getName(),dto.getEmail(),dto.getTelephone(),dto.getPassword()));
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return adminDaoImpl.delete(id);
+        return adminDao.delete(id);
     }
 
     @Override
     public AdminDTO search(String id) throws SQLException, ClassNotFoundException {
-        Admin search = adminDaoImpl.search(id);
+        Admin search = adminDao.search(id);
 
         if (search == null) {
             return null;
@@ -40,7 +40,7 @@ public class AdminBOImpl implements AdminBO  {
 
     @Override
     public List<AdminDTO> getAll() throws SQLException, ClassNotFoundException {
-        List<Admin> all = adminDaoImpl.getAll();
+        List<Admin> all = adminDao.getAll();
         List<AdminDTO> adminDTOS = new ArrayList<>();
 
         if (all == null) {
@@ -56,7 +56,12 @@ public class AdminBOImpl implements AdminBO  {
 
     @Override
     public String generateNextId() throws SQLException, ClassNotFoundException {
-        return adminDaoImpl.generateNextId();
+        return adminDao.generateNextId();
+    }
+
+    @Override
+    public boolean updatePassword(String username, String password) throws ClassNotFoundException {
+        return adminDao.updatePassword(username,password);
     }
 
 }

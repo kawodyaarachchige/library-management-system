@@ -5,6 +5,7 @@ import org.example.dao.custom.AdminDAO;
 import org.example.entity.Admin;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -67,5 +68,20 @@ import java.util.List;
             return "AD001";
 
         }
+
+
+        public boolean updatePassword(String username, String password) throws ClassNotFoundException {
+            Session session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
+            String hql = "update Admin set password=:password where username=:username";
+            Query query = session.createQuery(hql);
+            query.setParameter("password", password);
+            query.setParameter("username", username);
+            int isUpdated = query.executeUpdate();
+            transaction.commit();
+            session.close();
+            return isUpdated > 0;
+        }
     }
+
 

@@ -2,7 +2,9 @@ package org.example.dao.custom.impl;
 
 import org.example.config.FactoryConfiguration;
 import org.example.dao.custom.BookDAO;
+import org.example.dto.BookDTO;
 import org.example.entity.Book;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -69,13 +71,13 @@ public class BookDAOImpl implements BookDAO {
         transaction.commit();
         session.close();
 
-        if(object != null) {
+        if (object != null) {
             String CurrentId = object.toString();
             String[] split = CurrentId.split("B0");
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            if(id<10) {
+            if (id < 10) {
                 return "B00" + id;
             } else {
                 return "B0" + id;
@@ -108,4 +110,21 @@ public class BookDAOImpl implements BookDAO {
 
         return book;
     }
+
+    @Override
+    public List<Object[]> getCounts() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery(
+                        "SELECT 'Books', COUNT(DISTINCT b.id), 'Branches', COUNT(DISTINCT br.id), 'Users', COUNT(DISTINCT u.email) " +
+                                "FROM Book b " +
+                                "RIGHT JOIN b.branch br " +
+                                "LEFT JOIN b.borrowBooks bb " +
+                                "LEFT JOIN bb.user u ")
+                .list();
+        transaction.commit();
+        session.close();
+        return list;
+    }
 }
+

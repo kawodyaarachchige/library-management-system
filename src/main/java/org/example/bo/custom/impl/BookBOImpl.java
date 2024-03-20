@@ -1,17 +1,12 @@
 package org.example.bo.custom.impl;
 
 import org.example.bo.custom.BookBO;
-import org.example.config.FactoryConfiguration;
 import org.example.dao.DAOFactory;
 import org.example.dao.custom.BookDAO;
 import org.example.dto.BookDTO;
-import org.example.dto.BorrowingBookDTO;
 import org.example.dto.BranchDTO;
 import org.example.entity.Book;
 import org.example.entity.Branch;
-import org.example.entity.User;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -96,5 +91,10 @@ public class BookBOImpl  implements BookBO {
         }
 
         return list1;
+    }
+
+    @Override
+    public List<Object[]> getCounts() throws SQLException, ClassNotFoundException {
+        return bookDAO.getCounts();
     }
 }

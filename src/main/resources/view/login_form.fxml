@@ -26,7 +26,7 @@
                </font>
             </Label>
             <TextField fx:id="username" layoutX="39.0" layoutY="156.0" prefHeight="37.0" prefWidth="296.0" promptText="Enter username" />
-            <Label layoutX="238.0" layoutY="272.0" text="forget password" />
+            <Label fx:id="txtForgetPassword" layoutX="238.0" layoutY="272.0" onMouseClicked="#txtForgetPasswordOnAction" text="forget password" />
             <Label layoutX="131.0" layoutY="362.0" text="Don't have Account yet?" />
             <Button fx:id="login" layoutX="129.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="LOG IN" />
             <Button fx:id="signin" layoutX="129.0" layoutY="388.0" mnemonicParsing="false" onAction="#btnSignUpOnAction" prefHeight="37.0" prefWidth="134.0" stylesheets="@../asserts/styles/loginstyle.css" text="SIGN UP" />

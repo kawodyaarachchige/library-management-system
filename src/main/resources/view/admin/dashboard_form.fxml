@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,38 +10,38 @@
 
 <AnchorPane fx:id="dashPane" prefHeight="780.0" prefWidth="1434.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.DashBoardFormController">
    <children>
-      <AnchorPane fx:id="manageBook" layoutX="21.0" layoutY="188.0" onDragDetected="#btnManageBookOnAction" prefHeight="484.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
+      <AnchorPane fx:id="manageBook" layoutX="702.0" layoutY="443.0" onDragDetected="#btnManageBookOnAction" prefHeight="274.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
          <children>
             <AnchorPane layoutX="-1.0" layoutY="1.0" prefWidth="333.0" />
-            <ImageView fitHeight="294.0" fitWidth="299.0" layoutX="21.0" layoutY="190.0">
+            <ImageView fitHeight="200.0" fitWidth="274.0" layoutX="29.0" layoutY="54.0">
                <image>
                   <Image url="@../../asserts/image/9796592-removebg-preview.png" />
                </image>
             </ImageView>
-            <Label layoutX="99.0" layoutY="49.0" text="Manage Books">
+            <Label layoutX="90.0" layoutY="14.0" text="Manage Books">
                <font>
                   <Font name="AppleMyungjo Regular" size="21.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="books" layoutX="374.0" layoutY="188.0" onDragDetected="#btnManageBorrowingBookOnAction" prefHeight="484.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
+      <AnchorPane fx:id="books" layoutX="702.0" layoutY="158.0" onDragDetected="#btnManageBorrowingBookOnAction" prefHeight="274.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
          <children>
-            <ImageView fitHeight="294.0" fitWidth="274.0" layoutX="32.0" layoutY="190.0">
+            <ImageView fitHeight="186.0" fitWidth="274.0" layoutX="32.0" layoutY="71.0">
                <image>
                   <Image url="@../../asserts/image/21532510_6461494-removebg-preview.png" />
                </image>
             </ImageView>
-            <Label layoutX="49.0" layoutY="44.0" text="Manage Borrowing Books">
+            <Label layoutX="49.0" layoutY="14.0" text="Manage Borrowing Books">
                <font>
                   <Font name="AppleMyungjo Regular" size="21.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="branches" layoutX="728.0" layoutY="189.0" onDragDetected="#btnManageBranchesOnAction" prefHeight="484.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
+      <AnchorPane fx:id="branches" layoutX="1070.0" layoutY="433.0" onDragDetected="#btnManageBranchesOnAction" prefHeight="274.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
          <children>
-            <ImageView fitHeight="283.0" fitWidth="318.0" layoutX="8.0" layoutY="201.0">
+            <ImageView fitHeight="186.0" fitWidth="318.0" layoutX="10.0" layoutY="79.0">
                <image>
                   <Image url="@../../asserts/image/10258336-removebg-preview.png" />
                </image>
@@ -52,9 +53,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="users" layoutX="1081.0" layoutY="189.0" onDragDetected="#btnUserManageOnAction" prefHeight="484.0" prefWidth="338.0" stylesheets="@../../asserts/styles/dash.css">
+      <AnchorPane fx:id="users" layoutX="1066.0" layoutY="158.0" onDragDetected="#btnUserManageOnAction" prefHeight="249.0" prefWidth="345.0" stylesheets="@../../asserts/styles/dash.css">
          <children>
-            <ImageView fitHeight="283.0" fitWidth="333.0" layoutX="4.0" layoutY="201.0">
+            <ImageView fitHeight="150.0" fitWidth="333.0" layoutX="10.0" layoutY="80.0">
                <image>
                   <Image url="@../../asserts/image/literature-concept-illustration_114360-8383-removebg-preview.png" />
                </image>
@@ -75,5 +76,6 @@
       <Label fx:id="dateLabel" layoutX="42.0" layoutY="27.0" text="Label" />
       <Label fx:id="timeLabel" layoutX="42.0" layoutY="52.0" text="Label" />
       <Label fx:id="lblWho" layoutX="687.0" layoutY="44.0" text="Label" />
+      <PieChart fx:id="pieChart" layoutX="102.0" layoutY="243.0" />
    </children>
 </AnchorPane>

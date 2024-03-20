@@ -54,6 +54,11 @@
             <artifactId>javax.mail</artifactId>
             <version>1.6.2</version> <!-- Use the latest version available -->
         </dependency>
+        <dependency>
+            <groupId>io.github.typhon0</groupId>
+            <artifactId>AnimateFX</artifactId>
+            <version>1.2.4</version>
+        </dependency>
 
     </dependencies>
 
