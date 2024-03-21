@@ -102,5 +102,12 @@ public class BorrowingBOImpl implements BorrowingBO {
         }
         return list;
     }
+
+    @Override
+    public int getPendingBookCount() throws SQLException, ClassNotFoundException {
+        return borrowingDaoImpl.getPendingBookCount();
+    }
+
+
 }
 

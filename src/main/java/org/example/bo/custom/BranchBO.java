@@ -5,6 +5,7 @@ import org.example.dto.BranchDTO;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface BranchBO extends SuperBO {
     boolean save(BranchDTO dto) throws SQLException, ClassNotFoundException;
@@ -16,5 +17,7 @@ public interface BranchBO extends SuperBO {
     List<BranchDTO> getAll() throws SQLException, ClassNotFoundException;
     String generateNextId() throws SQLException, ClassNotFoundException;
     BranchDTO searchByLocation(String location) throws SQLException, ClassNotFoundException;
+
+    Map<String, Long> getUsersPerBranch() throws SQLException;
 }
 

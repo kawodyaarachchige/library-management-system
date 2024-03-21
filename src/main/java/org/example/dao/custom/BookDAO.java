@@ -12,4 +12,7 @@ public interface BookDAO extends CrudDAO<Book> {
     List<Book> searchByBranch(String branch) throws SQLException, ClassNotFoundException;
 
    List<Object[]> getCounts() throws SQLException, ClassNotFoundException;
+
+
+
 }

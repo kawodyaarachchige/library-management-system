@@ -1,0 +1,7 @@
+.chart-bar {
+    -fx-bar-fill: rgb(112,218,156);
+}
+.chart-plot-background { -fx-background-color: transparent; -fx-background-insets: 0; }
+.chart-title { -fx-font-size: 14px; -fx-font-weight: bold; }
+.axis { -fx-font-size: 12px; -fx-tick-label-fill: black; }
+.chart-content { -fx-background-color: transparent; }

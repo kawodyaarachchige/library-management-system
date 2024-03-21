@@ -2,7 +2,7 @@
     -fx-font-size: 40;
     -fx-text-fill: radial-gradient(center 50% 50%, radius 100%, rgba(110,218,156,1) 16%, #000000FF 89%);
     -fx-text-shadow: 2px 2px 2px #000000FF;
-    -fx-font-family:"cursive";
+    -fx-font-family:"Adelle Sans Devanagari Semibold";
     -fx-font-weight: bold;
 }
 #dashPane{
@@ -30,7 +30,6 @@
     -fx-background-color:  white;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
-    -fx-border-color: #15F5BA;
     -fx-cursor: hand;
 
 }
@@ -42,7 +41,7 @@
     -fx-text-fill:  rgb(112,218,156);
 }
 #manageBook:hover,#books:hover,#branches:hover,#users:hover{
-    -fx-background-color:  rgb(112,218,156);
+    -fx-background-color:  #D1FAE2;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
     -fx-border-color: #15F5BA;

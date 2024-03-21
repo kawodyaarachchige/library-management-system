@@ -6,7 +6,6 @@ import org.example.entity.BorrowingBooks;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.print.DocFlavor;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -27,7 +26,7 @@ public class BorrowingDAOImpl implements BorrowingDAO {
     public List<BorrowingBooks> getUserList(String email) throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE user.email='"+email+"'").list();
+        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE user.email='" + email + "'").list();
         transaction.commit();
         session.close();
         return list;
@@ -42,6 +41,16 @@ public class BorrowingDAOImpl implements BorrowingDAO {
         transaction.commit();
         session.close();
         return list;
+    }
+
+    @Override
+    public int getPendingBookCount() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<BorrowingBooks> list = session.createQuery("SELECT count (*) FROM BorrowingBooks WHERE status='pending'").list();
+        transaction.commit();
+        session.close();
+        return list.size();
     }
 
 
@@ -105,13 +114,13 @@ public class BorrowingDAOImpl implements BorrowingDAO {
         transaction.commit();
         session.close();
 
-        if(object != null) {
+        if (object != null) {
             String CurrentId = object.toString();
             String[] split = CurrentId.split("BRA");
 
-             int id = Integer.parseInt(split[1]); //01
+            int id = Integer.parseInt(split[1]); //01
             id++;
-            if(id<10) {
+            if (id < 10) {
                 return "BRA00" + id;
             } else {
                 return "BRA0" + id;
@@ -122,4 +131,14 @@ public class BorrowingDAOImpl implements BorrowingDAO {
 
 
     }
+    /*@Override
+    public List<BorrowingBooks> getBorrowingBooksByMonth(String month) throws SQLException, ClassNotFoundException {
+     *//*   Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<BorrowingBooks> list = session.createQuery("FROM BorrowingBooks WHERE MONTH(borrowDate) = :month").setParameter("month", month).list();
+        transaction.commit();
+        session.close();
+        return list;
+    }*/
+
 }

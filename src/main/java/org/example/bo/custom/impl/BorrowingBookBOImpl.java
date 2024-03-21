@@ -13,8 +13,8 @@ import org.hibernate.Transaction;
 
 public class BorrowingBookBOImpl implements BorrowingBooksBO {
     public void borrowBook(BorrowingBookDTO borrowDTO, BookDTO book) {
-
-
+        Session session = null;
+        try {
             User user = new User(borrowDTO.getUser().getName(), borrowDTO.getUser().getEmail(), borrowDTO.getUser().getPassword(), borrowDTO.getUser().getTelephone(), null, null);
             Branch branch = new Branch(book.getBranch().getId(), book.getBranch().getLocation(), book.getBranch().getTelephone(), book.getBranch().getEmail(), book.getBranch().getAddress(), null, null);
             Book bookEnt = new Book(borrowDTO.getBook().getId(), borrowDTO.getBook().getTitle(), borrowDTO.getBook().getAuthor(), borrowDTO.getBook().getGenre(), borrowDTO.getBook().getStatus(), branch, null);
@@ -22,15 +22,20 @@ public class BorrowingBookBOImpl implements BorrowingBooksBO {
 
             bookEnt.setStatus("Not Available");
 
-            Session session = FactoryConfiguration.getInstance().getSession();
+            session = FactoryConfiguration.getInstance().getSession();
             Transaction transaction = session.beginTransaction();
 
             session.persist(borrowBooks);
             session.update(bookEnt);
 
             transaction.commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             session.close();
         }
+    }
 
 }
 

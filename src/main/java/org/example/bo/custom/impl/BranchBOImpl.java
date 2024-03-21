@@ -9,6 +9,7 @@ import org.example.entity.Branch;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class BranchBOImpl implements BranchBO {
     BranchDAO branchDaoImpl = (BranchDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.BRANCH);
@@ -63,6 +64,15 @@ public class BranchBOImpl implements BranchBO {
     public BranchDTO searchByLocation(String location) throws SQLException, ClassNotFoundException{
         Branch branch = branchDaoImpl.searchByLocation(location);
         return new BranchDTO(branch.getId(),branch.getLocation(),branch.getTelephone(),branch.getEmail(),branch.getAddress());
+    }
+
+    @Override
+    public Map<String, Long> getUsersPerBranch() throws SQLException {
+        try {
+            return branchDaoImpl.getUsersPerBranch();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

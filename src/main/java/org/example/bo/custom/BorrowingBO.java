@@ -2,6 +2,7 @@ package org.example.bo.custom;
 
 import org.example.bo.SuperBO;
 import org.example.dto.BorrowingBookDTO;
+import org.example.entity.BorrowingBooks;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -17,4 +18,6 @@ public interface BorrowingBO extends SuperBO {
     List<BorrowingBookDTO> getPendingList() throws SQLException, ClassNotFoundException;
     List<BorrowingBookDTO> getUserList(String email) throws SQLException, ClassNotFoundException;
     List<BorrowingBookDTO> getNotReturnList(LocalDate date) throws SQLException, ClassNotFoundException;
+
+    int getPendingBookCount() throws SQLException, ClassNotFoundException;
 }

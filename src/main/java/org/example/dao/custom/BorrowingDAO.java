@@ -13,5 +13,7 @@ public interface BorrowingDAO extends CrudDAO<BorrowingBooks> {
     List<BorrowingBooks> getPendingList() throws SQLException, ClassNotFoundException;
     List<BorrowingBooks> getUserList(String email) throws SQLException, ClassNotFoundException;
     List<BorrowingBooks> getNotReturnList(LocalDate date) throws SQLException, ClassNotFoundException;
+
+   int getPendingBookCount() throws SQLException, ClassNotFoundException;
 }
 

@@ -77,7 +77,7 @@ public class LoginFormController {
                             Scene scene1 = new Scene(root);
                             Stage stage1 = (Stage) login.getScene().getWindow();
                             stage1.setScene(scene1);
-                            stage1.setTitle("Sign Up Form");
+                            stage1.setTitle("Dashboard Form");
                             stage1.centerOnScreen();
                             isCredentialsOK = true;
                         } catch (Exception e) {

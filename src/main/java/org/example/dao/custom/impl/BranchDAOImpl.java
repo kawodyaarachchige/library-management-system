@@ -7,7 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BranchDAOImpl implements BranchDAO {
     @Override
@@ -60,6 +62,7 @@ public class BranchDAOImpl implements BranchDAO {
         session.close();
         return branchList;
     }
+
     @Override
     public String generateNextId() throws SQLException, ClassNotFoundException {
         Session session = FactoryConfiguration.getInstance().getSession();
@@ -68,13 +71,13 @@ public class BranchDAOImpl implements BranchDAO {
         transaction.commit();
         session.close();
 
-        if(object != null) {
+        if (object != null) {
             String CurrentId = object.toString();
             String[] split = CurrentId.split("BR0");
 
             int id = Integer.parseInt(split[1]); //01
             id++;
-            if(id<10) {
+            if (id < 10) {
                 return "BR00" + id;
             } else {
                 return "BR0" + id;
@@ -94,4 +97,22 @@ public class BranchDAOImpl implements BranchDAO {
         session.close();
         return branch;
     }
+
+    @Override
+    public Map<String, Long> getUsersPerBranch() throws SQLException {
+        Map<String, Long> usersPerBranch = new HashMap<>();
+
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery("SELECT b.location, COUNT(u) FROM Branch b JOIN b.users u GROUP BY b.location").list();
+        for (Object[] objects : list) {
+            usersPerBranch.put((String) objects[0], (Long) objects[1]);
+
+        }
+        transaction.commit();
+        session.close();
+
+
+        return usersPerBranch;}
+
 }
