@@ -97,4 +97,10 @@ public class BookBOImpl  implements BookBO {
     public List<Object[]> getCounts() throws SQLException, ClassNotFoundException {
         return bookDAO.getCounts();
     }
+
+    @Override
+    public List<Object[]> getBookCountsByTitle() throws SQLException, ClassNotFoundException {
+        return bookDAO.getBookCountsByTitle();
+    }
+
 }

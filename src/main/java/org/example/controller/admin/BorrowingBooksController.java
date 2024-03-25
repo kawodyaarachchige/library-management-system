@@ -184,7 +184,7 @@ public class BorrowingBooksController {
         Mail mail = new Mail();
         mail.setMsg("Hello User! \n\n Please return all borrowed books promptly to the library to ensure their availability for other readers. \n\nThank you for your cooperation.");
         mail.setTo(txtUserMail.getText());
-        mail.setSubject("OTP Verification");
+        mail.setSubject("Return Book Notice");
         Thread thread = new Thread (mail);
         thread.start();
         new Alert(Alert.AlertType.CONFIRMATION, "Mail Sent Successfully").show();

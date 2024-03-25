@@ -15,24 +15,24 @@
 
 <AnchorPane fx:id="manageBook" prefHeight="780.0" prefWidth="1434.0" stylesheets="@../../asserts/styles/books.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.admin.ManageBookFormController">
    <children>
-      <Label layoutX="607.0" layoutY="24.0" text="Manage Books">
+      <Label layoutX="588.0" layoutY="13.0" text="Manage Books">
          <font>
-            <Font name="Apple LiGothic Medium" size="40.0" />
+            <Font name="Adelle Sans Devanagari Semibold" size="33.0" />
          </font>
       </Label>
       <AnchorPane layoutX="56.0" layoutY="190.0" prefHeight="513.0" prefWidth="560.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #37D390;">
          <children>
-            <Label layoutX="55.0" layoutY="47.0" text="Book Id :">
+            <Label layoutX="55.0" layoutY="48.0" text="Book Id :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="55.0" layoutY="214.0" text="Genre :">
+            <Label layoutX="55.0" layoutY="213.0" text="Genre :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="55.0" layoutY="158.0" text="Author :">
+            <Label layoutX="55.0" layoutY="155.0" text="Author :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -42,22 +42,22 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <TextField fx:id="txtId" layoutX="147.0" layoutY="35.0" prefHeight="31.0" prefWidth="327.0" stylesheets="@../../asserts/styles/books.css" />
-            <TextField fx:id="txtGenre" layoutX="146.0" layoutY="200.0" prefHeight="31.0" prefWidth="335.0" stylesheets="@../../asserts/styles/books.css" />
-            <TextField fx:id="txtAuthor" layoutX="146.0" layoutY="142.0" prefHeight="31.0" prefWidth="332.0" stylesheets="@../../asserts/styles/books.css" />
-            <TextField fx:id="txtTitle" layoutX="146.0" layoutY="85.0" prefHeight="31.0" prefWidth="331.0" stylesheets="@../../asserts/styles/books.css" />
-            <Label layoutX="53.0" layoutY="332.0" text="Branch :">
+            <TextField fx:id="txtId" layoutX="147.0" layoutY="32.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" />
+            <TextField fx:id="txtGenre" layoutX="146.0" layoutY="196.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" />
+            <TextField fx:id="txtAuthor" layoutX="146.0" layoutY="138.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" />
+            <TextField fx:id="txtTitle" layoutX="146.0" layoutY="84.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" />
+            <Label layoutX="53.0" layoutY="326.0" text="Branch :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label layoutX="54.0" layoutY="271.0" text="Status :">
+            <Label layoutX="54.0" layoutY="269.0" text="Status :">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <JFXComboBox fx:id="cmbStatus" focusColor="#405aa800" layoutX="148.0" layoutY="255.0" prefHeight="31.0" prefWidth="332.0" stylesheets="@../../asserts/styles/books.css" unFocusColor="#b7ebcb09" />
-            <JFXComboBox fx:id="cmbBranches" focusColor="#405aa801" layoutX="146.0" layoutY="315.0" prefHeight="31.0" prefWidth="334.0" stylesheets="@../../asserts/styles/books.css" unFocusColor="#4d4d4d08" />
+            <JFXComboBox fx:id="cmbStatus" focusColor="#405aa800" layoutX="148.0" layoutY="252.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" unFocusColor="#b7ebcb09" />
+            <JFXComboBox fx:id="cmbBranches" focusColor="#405aa801" layoutX="146.0" layoutY="313.0" prefHeight="34.0" prefWidth="364.0" stylesheets="@../../asserts/styles/books.css" unFocusColor="#4d4d4d08" />
             <Button fx:id="clear" layoutX="430.0" layoutY="434.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="40.0" prefWidth="101.0" stylesheets="@../../asserts/styles/books.css" text="CLEAR" />
             <Button fx:id="update" layoutX="299.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="40.0" prefWidth="101.0" stylesheets="@../../asserts/styles/books.css" text="UPDATE" />
             <Button fx:id="delete" layoutX="168.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="40.0" prefWidth="101.0" stylesheets="@../../asserts/styles/books.css" text="DELETE" />

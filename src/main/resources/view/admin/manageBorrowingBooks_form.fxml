@@ -25,9 +25,9 @@
         </TableView>
         <Button fx:id="search" layoutX="1295.0" layoutY="89.0" mnemonicParsing="false" onAction="#serachOnAction" prefHeight="27.0" prefWidth="102.0" stylesheets="@../../asserts/styles/borrowBook.css" text="Serach" />
         <Label fx:id="back" layoutX="55.0" layoutY="738.0" onMouseClicked="#lablBackOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="BACK" />
-        <Label layoutX="496.0" layoutY="59.0" text="MANAGE BORROW BOOKS">
+        <Label layoutX="561.0" layoutY="60.0" text="MANAGE BORROW BOOKS">
             <font>
-                <Font name="Apple LiGothic Medium" size="35.0" />
+                <Font name="Adelle Sans Devanagari Semibold" size="28.0" />
             </font>
         </Label>
       <TextField fx:id="txtEmail" layoutX="1081.0" layoutY="87.0" prefHeight="29.0" prefWidth="190.0" promptText="User E-mail" stylesheets="@../../asserts/styles/borrowBook.css" />
@@ -63,7 +63,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-              <AnchorPane layoutX="82.0" layoutY="37.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: green; -fx-background-radius: 50; -fx-border-radius: 50;">
+              <AnchorPane layoutX="82.0" layoutY="20.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: green; -fx-background-radius: 50; -fx-border-radius: 50;">
                <children>
                   <ImageView layoutX="17.0" layoutY="19.0">
                      <image>
@@ -72,7 +72,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-              <AnchorPane layoutX="181.0" layoutY="36.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 50; -fx-border-radius: 50;">
+              <AnchorPane layoutX="179.0" layoutY="25.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: red; -fx-background-radius: 50; -fx-border-radius: 50;">
                <children>
                   <ImageView layoutX="18.0" layoutY="17.0">
                      <image>
@@ -81,7 +81,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-              <AnchorPane layoutX="277.0" layoutY="34.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;">
+              <AnchorPane layoutX="277.0" layoutY="25.0" prefHeight="83.0" prefWidth="84.0" style="-fx-background-color: white; -fx-border-color: blue; -fx-background-radius: 50; -fx-border-radius: 50;">
                <children>
                   <ImageView layoutX="17.0" layoutY="17.0">
                      <image>
@@ -90,9 +90,9 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label fx:id="all" layoutX="93.0" layoutY="130.0" onMouseClicked="#AllOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="All Book" />
-            <Label fx:id="not" layoutX="155.0" layoutY="130.0" onMouseClicked="#notReturnedOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Not returned Books" />
-            <Label fx:id="pen" layoutX="277.0" layoutY="130.0" onMouseClicked="#pendingOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Pending Books" />
+            <Label fx:id="all" layoutX="91.0" layoutY="128.0" onMouseClicked="#AllOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="All Book" />
+            <Label fx:id="not" layoutX="154.0" layoutY="128.0" onMouseClicked="#notReturnedOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Not returned Books" />
+            <Label fx:id="pen" layoutX="277.0" layoutY="128.0" onMouseClicked="#pendingOnAction" stylesheets="@../../asserts/styles/borrowBook.css" text="Pending Books" />
             <Button fx:id="inform" layoutX="266.0" layoutY="465.0" mnemonicParsing="false" onAction="#btninnformOnAction" prefHeight="36.0" prefWidth="91.0" stylesheets="@../../asserts/styles/borrowBook.css" text="INFORM" />
          </children>
       </AnchorPane>
@@ -101,7 +101,7 @@
             <Image url="@../../asserts/icons/icons8-back-64.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="436.0" layoutY="60.0">
+      <ImageView fitHeight="37.0" fitWidth="45.0" layoutX="492.0" layoutY="69.0">
          <image>
             <Image url="@../../asserts/icons/icons8-book.gif" />
          </image>

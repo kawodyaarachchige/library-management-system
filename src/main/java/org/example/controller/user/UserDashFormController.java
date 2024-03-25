@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -15,11 +16,15 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.example.bo.BOFactory;
+import org.example.bo.custom.BookBO;
 import org.example.controller.LoginFormController;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 import static org.example.controller.LoginFormController.email;
 
@@ -32,14 +37,17 @@ public class UserDashFormController {
     public Label lblTime;
     public Label lblDate;
     public Label lblWho;
+    public PieChart pieChart;
+
+    BookBO bookBo = (BookBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.BOOK);
 
 
-    public void initialize() {
+    public void initialize() throws SQLException, ClassNotFoundException {
        /* lblWho.setText("Hello" + "" + email);
         lblWho.setTextFill(Color.BLACK);
         lblWho.setFont(Font.font("Ubuntu", FontWeight.BOLD,20));*/
 
-
+        loadData();
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.seconds(1), event -> updateClock())
         );
@@ -48,23 +56,24 @@ public class UserDashFormController {
         updateClock();
         lblTime.setText(LocalDate.now().toString());
         lblTime.setTextFill(Color.BLACK);
-        lblTime.setFont(Font.font("Arial", FontWeight.BOLD,16));
-        lblDate.setText("Date: " + java.time.LocalDate.now());
-        lblDate.setFont(Font.font("Arial", FontWeight.BOLD,16));
+        lblTime.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        lblDate.setText(LocalDate.now().toString());
+        lblDate.setFont(Font.font("Arial", FontWeight.BOLD, 16));
         lblDate.setTextFill(Color.BLACK);
     }
+
     private void updateClock() {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String formattedTime = dateFormat.format(now);
-        lblTime.setText( formattedTime);
+        lblTime.setText(formattedTime);
     }
 
     public void btnBookFormOnAction(MouseEvent mouseEvent) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/user/book_form.fxml"));
             Scene scene1 = new Scene(root);
-            Stage stage1 = (Stage)viewBook .getScene().getWindow();
+            Stage stage1 = (Stage) viewBook.getScene().getWindow();
             stage1.setScene(scene1);
             stage1.setTitle("Book Form");
             stage1.centerOnScreen();
@@ -81,7 +90,7 @@ public class UserDashFormController {
             user.txtUserMail.setText(email);
             user.start();*/
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
@@ -90,13 +99,13 @@ public class UserDashFormController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/user/setting_form.fxml"));
             Scene scene1 = new Scene(root);
-            Stage stage1 = (Stage)setting .getScene().getWindow();
+            Stage stage1 = (Stage) setting.getScene().getWindow();
             stage1.setScene(scene1);
             stage1.setTitle("Setting Form");
             stage1.centerOnScreen();
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -106,13 +115,13 @@ public class UserDashFormController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/user/borrowingBooks_form.fxml"));
             Scene scene1 = new Scene(root);
-            Stage stage1 = (Stage)borrowBook .getScene().getWindow();
+            Stage stage1 = (Stage) borrowBook.getScene().getWindow();
             stage1.setScene(scene1);
             stage1.setTitle("Borrow Book Form");
             stage1.centerOnScreen();
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -136,7 +145,7 @@ public class UserDashFormController {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/login_form.fxml"));
             Scene scene1 = new Scene(root);
-            Stage stage1 = (Stage)logout .getScene().getWindow();
+            Stage stage1 = (Stage) logout.getScene().getWindow();
             stage1.setScene(scene1);
             stage1.setTitle("Login Form");
             stage1.centerOnScreen();
@@ -144,4 +153,20 @@ public class UserDashFormController {
             System.out.println(e);
         }
     }
+
+    private void loadData() throws SQLException, ClassNotFoundException {
+        List<Object[]> dataList = bookBo.getBookCountsByTitle();
+        setDataToPieChart(dataList);
+    }
+
+    private void setDataToPieChart(List<Object[]> dataList) {
+        pieChart.getData().clear(); // Clear existing data
+        // Format data for Pie Chart
+        for (Object[] result : dataList) {
+            String genre = (String) result[0];
+            Long count = (Long) result[1];
+            pieChart.getData().add(new PieChart.Data(genre, count));
+        }
+    }
+
 }

@@ -29,32 +29,32 @@
          <children>
             <Label layoutX="48.0" layoutY="58.0" text="Borrow ID:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="49.0" layoutY="164.0" text="User:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="48.0" layoutY="215.0" text="Book ID:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="49.0" layoutY="327.0" text="Today:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="48.0" layoutY="386.0" text="Return Date:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="47.0" layoutY="272.0" text="Branch Location:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="txtBorrowId" editable="false" layoutX="215.0" layoutY="43.0" prefHeight="37.0" prefWidth="310.0" promptText="Borrow Id" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
@@ -65,7 +65,7 @@
             <TextField fx:id="txtBranchLocation" editable="false" layoutX="215.0" layoutY="257.0" prefHeight="37.0" prefWidth="310.0" promptText="Branch" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
             <Label layoutX="46.0" layoutY="112.0" text="Book Name:">
                <font>
-                  <Font name="System Font" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
             </Label>
             <TextField fx:id="txtBookName" editable="false" layoutX="215.0" layoutY="99.0" prefHeight="37.0" prefWidth="310.0" promptText="Book Name" styleClass="branch" stylesheets="@../../asserts/styles/add.css" />
@@ -99,13 +99,13 @@
       </Button>
          </children>
       </AnchorPane>
-      <Label layoutX="112.0" layoutY="58.0" text="BORROW BOOK">
+      <Label layoutX="112.0" layoutY="47.0" text="BORROW BOOK">
          <font>
-            <Font name="Apple LiGothic Medium" size="34.0" />
+            <Font name="Adelle Sans Devanagari Semibold" size="25.0" />
          </font>
       </Label>
       <Label fx:id="back" layoutX="52.0" layoutY="754.0" onMouseClicked="#lblBackOnAction" text="BACK" />
-      <ImageView fitHeight="37.0" fitWidth="43.0" layoutX="328.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="315.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asserts/icons/icons8-book.gif" />
          </image>

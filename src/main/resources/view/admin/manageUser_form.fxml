@@ -59,7 +59,7 @@
       </AnchorPane>
       <Label layoutX="108.0" layoutY="65.0" text="Manage Users">
          <font>
-            <Font name="Apple LiGothic Medium" size="41.0" />
+            <Font name="Adelle Sans Devanagari Semibold" size="31.0" />
          </font>
       </Label>
       <Label fx:id="back" layoutX="56.0" layoutY="730.0" onMouseClicked="#lblBackOnAction" stylesheets="@../../asserts/styles/user.css" text="BACK" />
@@ -73,12 +73,12 @@
             <Image url="@../../asserts/icons/icons8-back-64.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="253.0" fitWidth="322.0" layoutX="156.0" layoutY="509.0">
+      <ImageView fitHeight="232.0" fitWidth="291.0" layoutX="156.0" layoutY="524.0">
          <image>
             <Image url="@../../asserts/image/Bibliophile-cuate.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="326.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="33.0" layoutX="326.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../asserts/icons/icons8-users-settings-32.png" />
          </image>

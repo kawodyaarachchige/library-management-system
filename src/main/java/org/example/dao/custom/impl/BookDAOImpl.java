@@ -127,6 +127,18 @@ public class BookDAOImpl implements BookDAO {
         return list;
     }
 
+    @Override  public List<Object[]> getBookCountsByTitle() throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        List<Object[]> list = session.createQuery(
+                        "SELECT title, COUNT(DISTINCT b.id) FROM Book b GROUP BY title")
+                .list();
+        transaction.commit();
+        session.close();
+        return list;
+
+    }
+
 
 }
 

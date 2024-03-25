@@ -20,15 +20,20 @@
             <TableColumn prefWidth="153.0" text="Status" />
          </columns>
       </TableView>
-      <Label layoutX="84.0" layoutY="49.0" text="Borrowing History">
+      <Label layoutX="62.0" layoutY="64.0" text="Borrowing History">
          <font>
-            <Font name="Apple LiGothic Medium" size="37.0" />
+            <Font name="Adelle Sans Devanagari Semibold" size="32.0" />
          </font>
       </Label>
-      <Label fx:id="back" layoutX="54.0" layoutY="733.0" onMouseClicked="#lblBackOnAction" text="BACK" />
-      <ImageView fitHeight="439.0" fitWidth="475.0" layoutX="40.0" layoutY="218.0">
+      <Label fx:id="back" layoutX="89.0" layoutY="731.0" onMouseClicked="#lblBackOnAction" text="BACK" />
+      <ImageView fitHeight="374.0" fitWidth="405.0" layoutX="54.0" layoutY="323.0">
          <image>
             <Image url="@../../asserts/image/dictionary-concept-illustration_114360-7609.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="62.0" layoutY="726.0">
+         <image>
+            <Image url="@../../asserts/icons/icons8-back-64.png" />
          </image>
       </ImageView>
    </children>
